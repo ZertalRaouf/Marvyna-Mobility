@@ -107,7 +107,7 @@ class AdminAuthController extends Controller
             $admin->update(['password'=>bcrypt($request->password)]);
             DB::table('password_resets')->where('email',$admin->email)->delete();
             session()->flash("success","Your Password Has Been Updated");
-            return redirect(route('admin.login'));
+            return redirect(route('admin.login.form'));
         }else
         {
             session()->flash("error","Oops!! Something wrong! please try again");

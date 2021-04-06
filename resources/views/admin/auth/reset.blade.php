@@ -10,7 +10,7 @@
             {{session('error')}}
         @endif
     </div>
-    <form action="{{route('admin.reset.post')}}" method="POST">
+    <form action="{{route('admin.reset.post',$check_token->token)}}" method="POST">
         @csrf
         <input type="email" name="email">
         @error('email')
