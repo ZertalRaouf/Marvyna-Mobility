@@ -18,6 +18,9 @@ class Authenticate extends Middleware
             if( $request->is('admin*')){
                 return route('admin.login.form');
             }
+            if( $request->is('user*')){
+                return route('user.login.form');
+            }
             return route('login');
         }
     }
