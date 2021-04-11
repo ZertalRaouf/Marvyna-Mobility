@@ -38,7 +38,7 @@ class UserAuthController extends Controller
         }else
         {
             session()->flash("error","incorrect information login");
-            return redirect()->route("admin.login");
+            return redirect()->route("user.login.form");
         }
     }
 
@@ -107,7 +107,7 @@ class UserAuthController extends Controller
             $user->update(['password'=>bcrypt($request->password)]);
             DB::table('password_resets')->where('email',$user->email)->delete();
             session()->flash("success","Your Password Has Been Updated");
-            return redirect(route('user.login'));
+            return redirect(route('user.login.form'));
         }else
         {
             session()->flash("error","Oops!! Something wrong! please try again");
@@ -118,6 +118,6 @@ class UserAuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route("user.login");
+        return redirect()->route("user.login.form");
     }
 }
