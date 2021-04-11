@@ -14,7 +14,7 @@ Route::get('reset-password/{token}',[\App\Http\Controllers\Web\User\UserAuthCont
 
 Route::post('reset-password/{token}',[\App\Http\Controllers\Web\User\UserAuthController::class,'reset_password'])->name('reset.post');
 
-Route::middleware('auth:admin')->group(static function(){
+Route::middleware('auth:user')->group(static function(){
     Route::any('logout',[App\Http\Controllers\Web\User\UserAuthController::class,'logout'])->name('logout');
     Route::get('dashboard',function (){
         return view('user.dashboard');
