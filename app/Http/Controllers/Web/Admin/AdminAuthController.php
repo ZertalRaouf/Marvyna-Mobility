@@ -38,7 +38,7 @@ class AdminAuthController extends Controller
         }else
         {
             session()->flash("error","incorrect information login");
-            return redirect()->route("admin.login");
+            return redirect()->route("admin.login.form");
         }
     }
 
