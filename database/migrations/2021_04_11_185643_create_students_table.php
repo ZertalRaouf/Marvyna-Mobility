@@ -21,10 +21,10 @@ class CreateStudentsTable extends Migration
             $table->date('birth_date');
             $table->date('enter_date');
             $table->date('leave_date');
-            $table->string('photo');
-            $table->string('observation');
-            $table->text('specificity');
-            $table->text('disability');
+            $table->string('photo')->nullable();
+            $table->string('observation')->nullable();
+            $table->text('specificity')->nullable();
+            $table->text('disability')->nullable();
             $table->timestamps();
         });
     }
