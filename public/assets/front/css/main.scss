@@ -1,0 +1,185 @@
+$bootstrap: #1ACEBB;
+$bootstrap2: #1ACEBB;
+$grey: #fafafa;
+$black: #000000;
+$white: #000000;
+$green: #3cd39e;
+$step: #E3E3E3;
+$step-text: #C6C6C6;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  background-color: $grey;
+  font-family: "Montserrat", sans-serif;
+
+  /* bg colors */
+
+  .bg-bootstrap {
+    background-color: $bootstrap;
+  }
+
+  .bg-bootstrap2 {
+    background-color: $bootstrap2;
+  }
+
+  .bg-grey {
+    background-color: $grey;
+  }
+
+  .bg-black {
+    background-color: $black;
+  }
+
+  .bg-white {
+    background-color: $white;
+  }
+
+  .bg-green {
+    background-color: $green;
+  }
+
+  .bg-step {
+    background-color: $step;
+  }
+
+  /* text colors */
+
+  .text-bootstrap {
+    color: $bootstrap;
+  }
+
+  .text-bootstrap2 {
+    color: $bootstrap2;
+  }
+
+  .text-grey {
+    color: $grey;
+  }
+
+  .text-black {
+    color: $black;
+  }
+
+  .text-white {
+    color: $white;
+  }
+
+  .text-green {
+    color: $green;
+  }
+
+  .text-step {
+    color: $step-text;
+  }
+
+  /* custom buttons */
+
+  .btn-bootstrap {
+    border-color: $bootstrap;
+    background-color: $bootstrap;
+    color: $white;
+  }
+
+  .btn-outline-bootstrap {
+    border-color: $bootstrap;
+    background-color: $white;
+    color: $bootstrap;
+  }
+
+  /* paddings */
+
+  .py-75 {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .pt-75 {
+    padding-top: 75px;
+  }
+
+  .pb-75 {
+    padding-bottom: 75px;
+  }
+
+  /* margins */
+
+  .my-75 {
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+
+  .mt-75 {
+    margin-top: 75px;
+  }
+
+  .mb-75 {
+    margin-bottom: 75px;
+  }
+
+  /* active class */
+
+  .navbar-light .navbar-nav .active > .nav-link,
+  .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .nav-link.show,
+  .navbar-light .navbar-nav .show > .nav-link {
+    color: $bootstrap !important;
+  }
+
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    background-color: $bootstrap !important;
+  }
+
+  .testimonials {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    .quote {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 40px;
+      background-color: $green;
+      border-radius: 50%;
+    }
+  }
+
+  .step {
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .prog {
+      height: 10px;
+  }
+
+  #pricing {
+    background: linear-gradient(rgba($color: $bootstrap, $alpha: .7), rgba($color: $bootstrap, $alpha: .7)), url(../images/collaborators.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .pricing {
+    position: relative;
+    .badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+}

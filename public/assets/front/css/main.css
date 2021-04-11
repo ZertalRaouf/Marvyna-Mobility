@@ -1,0 +1,128 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: "Montserrat", sans-serif;
+  /* bg colors */
+  /* text colors */
+  /* custom buttons */
+  /* paddings */
+  /* margins */
+  /* active class */
+}
+
+body .bg-bootstrap {
+  background-color: #1ACEBB;
+}
+
+body .bg-bootstrap2 {
+  background-color: #1ACEBB;
+}
+
+body .bg-grey {
+  background-color: #fafafa;
+}
+
+body .bg-black {
+  background-color: #000000;
+}
+
+body .bg-white {
+  background-color: #000000;
+}
+
+body .bg-green {
+  background-color: #3cd39e;
+}
+
+body .bg-step {
+  background-color: #E3E3E3;
+}
+
+body .text-bootstrap {
+  color: #1ACEBB;
+}
+
+body .text-bootstrap2 {
+  color: #1ACEBB;
+}
+
+body .text-grey {
+  color: #fafafa;
+}
+
+body .text-black {
+  color: #000000;
+}
+
+body .text-white {
+  color: #000000;
+}
+
+body .text-green {
+  color: #3cd39e;
+}
+
+body .text-step {
+  color: #C6C6C6;
+}
+
+body .btn-bootstrap {
+  border-color: #1ACEBB;
+  background-color: #1ACEBB;
+  color: #000000;
+}
+
+body .btn-outline-bootstrap {
+  border-color: #1ACEBB;
+  background-color: #000000;
+  color: #1ACEBB;
+}
+
+body .py-75 {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+body .pt-75 {
+  padding-top: 75px;
+}
+
+body .pb-75 {
+  padding-bottom: 75px;
+}
+
+body .my-75 {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+body .mt-75 {
+  margin-top: 75px;
+}
+
+body .mb-75 {
+  margin-bottom: 75px;
+}
+
+body .navbar-light .navbar-nav .active > .nav-link,
+body .navbar-light .navbar-nav .nav-link.active,
+body .navbar-light .navbar-nav .nav-link.show,
+body .navbar-light .navbar-nav .show > .nav-link {
+  color: #1ACEBB !important;
+}
+
+body .nav-pills .nav-link.active,
+body .nav-pills .show > .nav-link {
+  background-color: #1ACEBB !important;
+}
+
+body .testimonials {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+/*# sourceMappingURL=main.css.map */

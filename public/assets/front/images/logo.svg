@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="339" height="104.861" viewBox="0 0 339 104.861">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.806" y2="0.624" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1acebb"/>
+      <stop offset="1" stop-color="#1bd3b9"/>
+    </linearGradient>
+  </defs>
+  <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(-28 47.861)">
+    <text id="MARVYNA_MOBILITÉ" data-name="MARVYNA MOBILITÉ" transform="translate(28 29)" fill="#1acebb" font-size="28" font-family="Montserrat-Light, Montserrat" font-weight="300" letter-spacing="0.1em"><tspan x="0" y="0" fill="#000">MARVYNA</tspan><tspan y="0" font-family="Montserrat-Bold, Montserrat" font-weight="700" fill="#000"> </tspan><tspan y="0" fill="#1acebb" font-family="Montserrat-Bold, Montserrat" font-weight="700">MOBILITÉ</tspan></text>
+    <text id="LA_MOBILITÉ_EN_TOUTE_SÉRÉNITÉ" data-name="LA MOBILITÉ EN TOUTE SÉRÉNITÉ" transform="translate(196 55)" fill="#1acebb" font-size="9" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing="0.19em"><tspan x="-103.847" y="0" fill="#000">LA </tspan><tspan y="0" fill="#1acebb">MOBILITÉ</tspan><tspan y="0" xml:space="preserve" fill="#000"> EN TOUTE </tspan><tspan y="0" fill="#1acebb">SÉRÉNITÉ</tspan></text>
+    <path id="Icon_material-location-on" data-name="Icon material-location-on" d="M21.5,3a13.99,13.99,0,0,0-14,14c0,10.5,14,26,14,26s14-15.5,14-26A13.99,13.99,0,0,0,21.5,3Zm0,19a5,5,0,1,1,5-5A5,5,0,0,1,21.5,22Z" transform="translate(174.804 -50.861)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
