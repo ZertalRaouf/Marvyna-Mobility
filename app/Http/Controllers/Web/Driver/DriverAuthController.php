@@ -55,7 +55,7 @@ class DriverAuthController extends Controller
             'email'  => 'required|email'
         ]);
 
-        $driver = Admin::where("email",$data['email'])->first();
+        $driver = Driver::where("email",$data['email'])->first();
         if (!empty($driver))
         {
             $token = app('auth.password.broker')->createToken($driver);
