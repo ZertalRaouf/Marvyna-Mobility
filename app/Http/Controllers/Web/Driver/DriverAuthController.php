@@ -64,7 +64,7 @@ class DriverAuthController extends Controller
                 'token'      => $token,
                 'created_at' => Carbon::now(),
             ]);
-            Mail::to($driver->email)->send(new UserResetPassword(['user'=>$driver,'token'=>$token]));
+            Mail::to($driver->email)->send(new UserResetPassword(['driver'=>$driver,'token'=>$token]));
             session()->flash('success',"An email has been sent, please click the link when you get it.");
             return back();
         }
