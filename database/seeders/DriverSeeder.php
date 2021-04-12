@@ -17,7 +17,7 @@ class DriverSeeder extends Seeder
         Driver::create([
             'name'=>'john doe',
             'email'=>'driver@app.com',
-            'name'=>bcrypt('password'),
+            'password'=>bcrypt('password'),
         ]);
     }
 }
