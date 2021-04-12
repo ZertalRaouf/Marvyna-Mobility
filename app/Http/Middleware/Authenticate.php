@@ -21,6 +21,9 @@ class Authenticate extends Middleware
             if( $request->is('user*')){
                 return route('user.login.form');
             }
+            if( $request->is('driver*')){
+                return route('driver.login.form');
+            }
             return route('login');
         }
     }
