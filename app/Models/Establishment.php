@@ -14,4 +14,8 @@ class Establishment extends Model
         'address',
         'observation'
     ];
+
+    public function students(){
+        return $this->belongsToMany(Student::class);
+    }
 }
