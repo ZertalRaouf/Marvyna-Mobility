@@ -30,4 +30,8 @@ class Vehicule extends Model
         'photos',
         'observation'
     ];
+
+    public function circuits(){
+        return $this->hasMany(Circuit::class);
+    }
 }
