@@ -18,4 +18,8 @@ class Circuit extends Model
         'driver_id',
         'vehicule_id'
     ];
+
+    public function students(){
+        return $this->belongsToMany(Student::class);
+    }
 }
