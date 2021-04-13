@@ -30,4 +30,8 @@ class Circuit extends Model
     public function vehicule(){
         return $this->belongsTo(Vehicule::class);
     }
+
+    public function roadmaps(){
+        return $this->hasMany(Roadmap::class);
+    }
 }
