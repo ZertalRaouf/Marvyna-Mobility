@@ -29,4 +29,8 @@ class Student extends Model
     public function establishments(){
         return $this->belongsToMany(Establishment::class);
     }
+
+    public function circuits(){
+        return $this->belongsToMany(Circuit::class);
+    }
 }
