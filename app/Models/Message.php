@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Conversation extends Model
+class Message extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'sender_id',
-        'reciever_id',
-        'type',
-        'subject'
+        'content',
+        'sender_type',
+        'conversation_id'
     ];
 
-    public function messages(){
-        return $this->hasMany(Message::class);
+    public function conversation(){
+        return $this->belongsTo(Conversation::class);
     }
 }
