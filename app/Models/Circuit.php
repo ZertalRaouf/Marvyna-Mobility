@@ -22,4 +22,12 @@ class Circuit extends Model
     public function students(){
         return $this->belongsToMany(Student::class);
     }
+
+    public function driver(){
+        return $this->belongsTo(Driver::class);
+    }
+
+    public function vehicule(){
+        return $this->belongsTo(Vehicule::class);
+    }
 }
