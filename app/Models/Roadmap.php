@@ -14,8 +14,7 @@ class Roadmap extends Model
         'circuit_id'
     ];
 
-    public function circuit(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
+    public function circuit(){
         return $this->belongsTo(Circuit::class);
     }
 }
