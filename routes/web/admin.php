@@ -29,3 +29,11 @@ Route::get('users/{id}/edit',[\App\Http\Controllers\Web\Admin\UserController::cl
 Route::put('users/{id}',[\App\Http\Controllers\Web\Admin\UserController::class,'update'])->name('users.update');
 Route::delete('users/{id}',[\App\Http\Controllers\Web\Admin\UserController::class,'destroy'])->name('users.destroy');
 
+Route::get('vehicules',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'index'])->name('vehicules.index');
+Route::get('vehicules/create',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'create'])->name('vehicules.create');
+Route::post('vehicules',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'store'])->name('vehicules.store');
+Route::get('vehicules/{id}',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'show'])->name('vehicules.show');
+Route::get('vehicules/{id}/edit',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'edit'])->name('vehicules.edit');
+Route::put('vehicules/{id}',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'update'])->name('vehicules.update');
+Route::delete('vehicules/{id}',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'destroy'])->name('vehicules.destroy');
+
