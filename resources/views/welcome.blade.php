@@ -3,34 +3,21 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!-- Font Import -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
 
     <!-- Bootstrap CSS -->
-    <link
-        rel="stylesheet"
-        href="{{asset('assets/front/css/bootstrap.min.css')}}"
-        rel="stylesheet"
-    />
+    <link rel="stylesheet" href="{{asset('assets/front/css/bootstrap.min.css')}}" rel="stylesheet"/>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('assets/front/css/main.css')}}" rel="stylesheet" />
 
     <!-- Font Awesome CDN -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
 
-    <title>mspr-dnt3</title>
+    <title>@yield('title',env('APP_NAME'))</title>
 </head>
 <body>
 
@@ -38,6 +25,7 @@
 <section id="navbar" class="bg-white py-4">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light text-capitalize px-0">
+
             <a class="navbar-brand font-weight-bold" href="index.html">
                 <img src="{{asset('assets/front/images/logo2.svg')}}" alt="logo" height="30">
             </a>
@@ -67,7 +55,7 @@
                     </li>
                     <li class="nav-item ml-4">
                         @auth
-                            <a href="{{ url('/home') }}" class="btn bg-bootstrap text-white nav-link text-light rounded-pill px-4 shadow-sm mt-4 mt-lg-0">Mon Compte</a>
+                            <a href="{{ url('/')}}" class="btn bg-bootstrap text-white nav-link text-light rounded-pill px-4 shadow-sm mt-4 mt-lg-0">Mon Compte</a>
                         @else
                             <a href="{{ route('admin.login.form') }}" class="btn bg-bootstrap text-white nav-link text-light rounded-pill px-4 shadow-sm mt-4 mt-lg-0">Se Connecter</a>
                         @endauth
@@ -90,11 +78,10 @@
                 <p class="my-5 text-justify">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                 </p>
-                <a
-                    href="javascript:void(0)"
-                    class="btn bg-bootstrap text-decoration-none text-white rounded-pill py-3 px-4 text-uppercase shadow-sm"
-                >en savoir plus</a
-                >
+                <a href="javascript:void(0)" class="btn bg-bootstrap text-decoration-none text-white rounded-pill py-3 px-5 text-capitalize shadow-sm">
+                    Essayer l'application<i class="fab fa-google-play ml-2"></i>
+                </a>
+
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0">
                 <img
