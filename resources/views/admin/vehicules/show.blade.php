@@ -7,7 +7,7 @@
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}" class="text-info">Accueil</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('admin.users.index')}}" class="text-info">Utilisateurs</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.users.index')}}" class="text-info">Véhicules</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0)" class="text-info">Détails</a></li>
                     </ol>
                 </div>
@@ -34,39 +34,10 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label><i class="fas fa-user mr-1"></i>Civilité :</label>
-                                        <p class="text-capitalize">Mr</p>
-                                    </div>
 
                                     <div class="col-md-6 mb-3">
-                                        <label><i class="fas fa-user mr-2"></i>Nom et prénom :</label>
-                                        <p class="text-capitalize">{{$user->name}}</p>
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label><i class="fas fa-phone-alt mr-2"></i>Numéro de téléphone :</label>
-                                        <p class="text-capitalize">0777 66 55 44</p>
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label><i class="fas fa-mobile-alt mr-2"></i>Mobile :</label>
-                                        <p class="text-capitalize">0777 66 55 44</p>
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label><i class="fas fa-envelope mr-2"></i>Adresse email :</label>
-                                        <p class="text-lowercase">{{$user->email}}</p>
-                                    </div>
-
-                                    <div class="col-md-12 mb-3">
-                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Adresse :</label>
-                                        <p class="text-capitalize">100 avenue simon bolivar 75019</p>
-                                    </div>
-
-                                    <div class="col-md-12 mb-3">
-                                        <label><i class="fas fa-list-alt mr-2"></i>Observation :</label>
-                                        <p class="text-capitalize">Ceci est une observation</p>
+                                        <label>Code :</label>
+                                        <p class="text-capitalize">{{$vehicule->code}}</p>
                                     </div>
 
                                 </div>
