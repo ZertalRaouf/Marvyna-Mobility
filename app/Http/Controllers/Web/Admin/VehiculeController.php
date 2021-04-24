@@ -31,13 +31,13 @@ class VehiculeController extends Controller
             'fuel'=>'required|integer|max:45',
             'color'=>'required|string|max:45',
             'number_of_places'=>'required|integer|max:45',
-            'tax_horses'=>'required|integer|max:45',
+            'tax_horses'=>'required|integer',
             'serial_number'=>'required|string|max:45',
-            'initial_number_of_km'=>'required|numeric|max:45',
+            'initial_number_of_km'=>'required|numeric',
             'mode_of_aquisition'=>'required|integer|max:45',
             'key_double_location'=>'required|string|max:45',
-            'photos'=>'required|string|max:45',
-            'observation'=>'required|string|max:45'
+            'photos'=>'string',
+            'observation'=>'string|max:45'
         ]);
         Vehicule::create($data);
         session()->flash('success','Vehicule crée avec succes');
@@ -71,9 +71,9 @@ class VehiculeController extends Controller
             'fuel'=>'required|integer|max:45',
             'color'=>'required|string|max:45',
             'number_of_places'=>'required|integer|max:45',
-            'tax_horses'=>'required|integer|max:45',
+            'tax_horses'=>'required|integer',
             'serial_number'=>'required|string|max:45',
-            'initial_number_of_km'=>'required|numeric|max:45',
+            'initial_number_of_km'=>'required|numeric',
             'mode_of_aquisition'=>'required|integer|max:45',
             'key_double_location'=>'required|string|max:45',
             'photos'=>'string',
