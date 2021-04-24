@@ -45,3 +45,11 @@ Route::get('drivers/{id}/edit',[\App\Http\Controllers\Web\Admin\DriverController
 Route::put('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'update'])->name('drivers.update');
 Route::delete('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'destroy'])->name('drivers.destroy');
 
+Route::get('establishments',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'index'])->name('establishments.index');
+Route::get('establishments/create',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'create'])->name('establishments.create');
+Route::post('establishments',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'store'])->name('establishments.store');
+Route::get('establishments/{id}',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'show'])->name('establishments.show');
+Route::get('establishments/{id}/edit',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'edit'])->name('establishments.edit');
+Route::put('establishments/{id}',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'update'])->name('establishments.update');
+Route::delete('establishments/{id}',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'destroy'])->name('establishments.destroy');
+
