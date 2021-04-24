@@ -32,8 +32,8 @@ class CreateVehiculesTable extends Migration
             $table->float('initial_number_of_km');
             $table->integer('mode_of_aquisition');
             $table->string('key_double_location');
-            $table->string('photos');
-            $table->string('observation');
+            $table->string('photos')->nullable();
+            $table->string('observation')->nullable();
             $table->timestamps();
         });
     }
