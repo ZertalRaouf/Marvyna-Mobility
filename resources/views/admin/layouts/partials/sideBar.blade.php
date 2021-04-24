@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
+                    <a href="{{route('admin.vehicules.index')}}" class="nav-link {{request()->is('admin/vehicules*') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-car"></i>
                         <p>
                             Véhicules
