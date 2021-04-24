@@ -23,14 +23,14 @@ class Student extends Model
     ];
 
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function establishments(){
-        return $this->belongsToMany(Establishment::class);
+        return $this->belongsToMany(Establishment::class)->withTimestamps();
     }
 
     public function circuits(){
-        return $this->belongsToMany(Circuit::class);
+        return $this->belongsToMany(Circuit::class)->withTimestamps();
     }
 }
