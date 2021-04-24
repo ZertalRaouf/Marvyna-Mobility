@@ -54,7 +54,7 @@
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="type">Type <span class="text-danger">*</span></label>
-                                            <select id="type" name="civility" type="text" class="custom-select">
+                                            <select id="type" name="type" type="text" class="custom-select">
                                                 <option value="1">type 1</option>
                                                 <option value="2">type 2</option>
                                             </select>
@@ -67,7 +67,7 @@
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="matriculation">Immatriculation <span class="text-danger">*</span></label>
-                                            <input id="matriculation" name="code" type="text" value="{{@old('matriculation')}}" class="form-control" placeholder="Immatriculation"/>
+                                            <input id="matriculation" name="matriculation" type="text" value="{{@old('matriculation')}}" class="form-control" placeholder="Immatriculation"/>
                                             @error('matriculation')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
