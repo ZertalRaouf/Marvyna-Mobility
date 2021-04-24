@@ -76,8 +76,8 @@ class VehiculeController extends Controller
             'initial_number_of_km'=>'required|numeric|max:45',
             'mode_of_aquisition'=>'required|integer|max:45',
             'key_double_location'=>'required|string|max:45',
-            'photos'=>'required|string|max:45',
-            'observation'=>'required|string|max:45'
+            'photos'=>'string',
+            'observation'=>'string|max:45'
         ]);
         $vehicule = Vehicule::findOrFail($id);
         $vehicule->update($data);
