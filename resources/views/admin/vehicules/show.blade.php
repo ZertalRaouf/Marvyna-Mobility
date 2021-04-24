@@ -39,6 +39,17 @@
                                         <label>Code :</label>
                                         <p class="text-capitalize">{{$vehicule->code}}</p>
                                     </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label>Type :</label>
+                                        @switch($vehicule->type)
+                                            @case('1')
+                                            <p class="text-capitalize">Type 1</p>
+                                            @break
+                                            @case('2')
+                                            <p class="text-capitalize">Type 2</p>
+                                            @break
+                                        @endswitch
+                                    </div>
 
                                 </div>
 
