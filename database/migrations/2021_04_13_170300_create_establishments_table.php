@@ -16,8 +16,10 @@ class CreateEstablishmentsTable extends Migration
         Schema::create('establishments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('phone');
+            $table->string('email');
             $table->string('address');
-            $table->text('observation');
+            $table->text('observation')->nullable();
             $table->timestamps();
         });
     }
