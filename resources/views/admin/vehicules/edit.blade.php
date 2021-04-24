@@ -58,8 +58,8 @@
                                         <div class="col-lg-4 mb-3">
                                             <label for="type">Type <span class="text-danger">*</span></label>
                                             <select id="type" name="type" type="text" class="custom-select">
-                                                <option value="1">type 1</option>
-                                                <option value="2">type 2</option>
+                                                <option value="1" {{ $vehicule->type == '1' ? 'selected' : '' }}>type 1</option>
+                                                <option value="2" {{ $vehicule->type == '2' ? 'selected' : '' }}>type 2</option>
                                             </select>
                                             @error('type')
                                             <span class="text-danger small">
