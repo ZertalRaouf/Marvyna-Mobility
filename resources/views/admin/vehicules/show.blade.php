@@ -45,7 +45,7 @@
                                 <hr>
 
                                 <div class="text-right">
-                                    <a href="{{route('admin.users.index')}}" class="btn btn-outline-info my-3" style="width: 135px">
+                                    <a href="{{route('admin.vehicules.index')}}" class="btn btn-outline-info my-3" style="width: 135px">
                                         Retour
                                     </a>
                                 </div>

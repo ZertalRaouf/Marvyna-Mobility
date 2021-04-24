@@ -76,10 +76,10 @@
                                         <td class="align-middle text-capitalize">{{$vehicule->code}}</td>
                                         <td class="align-middle">{{$vehicule->created_at->format('d-m-Y')}}</td>
                                         <td class="text-white align-middle">
-                                            <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.users.show',$vehicule->id)}}">
+                                            <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.vehicules.show',$vehicule->id)}}">
                                                 <i class="fas fa-folder"></i>
                                             </a>
-                                            <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.users.edit',$vehicule->id)}}">
+                                            <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.vehicules.edit',$vehicule->id)}}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
                                             <a class="btn btn-info rounded-circle btn-sm" onclick="deleteForm({{$vehicule->id}})">

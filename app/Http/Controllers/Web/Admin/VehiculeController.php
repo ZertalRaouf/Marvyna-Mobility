@@ -36,8 +36,8 @@ class VehiculeController extends Controller
             'initial_number_of_km'=>'required|numeric',
             'mode_of_aquisition'=>'required|integer|max:45',
             'key_double_location'=>'required|string|max:45',
-            'photos'=>'string',
-            'observation'=>'string|max:45'
+            'photos'=>'nullable|string',
+            'observation'=>'nullable|string|max:45'
         ]);
         Vehicule::create($data);
         session()->flash('success','Vehicule crée avec succes');
@@ -54,7 +54,7 @@ class VehiculeController extends Controller
 
     public function edit($id){
         $vehicule = Vehicule::findOrFail($id); // We don't need the if condition
-        return view('admin.vehicule.edit',compact('vehicule'));
+        return view('admin.vehicules.edit',compact('vehicule'));
     }
 
     public function update($id,Request $request){
@@ -76,8 +76,8 @@ class VehiculeController extends Controller
             'initial_number_of_km'=>'required|numeric',
             'mode_of_aquisition'=>'required|integer|max:45',
             'key_double_location'=>'required|string|max:45',
-            'photos'=>'string',
-            'observation'=>'string|max:45'
+            'photos'=>'string|nullable',
+            'observation'=>'string|max:45|nullable'
         ]);
         $vehicule = Vehicule::findOrFail($id);
         $vehicule->update($data);

@@ -77,7 +77,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="matriculation_date">Date d'immatriculation <span class="text-danger">*</span></label>
-                                            <input id="matriculation_date" name="matriculation_date" type="date" value="{{@old('matriculation_date')}}" class="form-control" placeholder="Date d'immatriculation" data-inputmask="'alias':'dd/mm/yyyy'" data-mask/>
+                                            <input id="matriculation_date" name="matriculation_date" type="date" value="{{@old('matriculation_date')}}" class="form-control" placeholder="Date d'immatriculation"/>
                                             @error('matriculation_date')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
