@@ -20,8 +20,10 @@ class EstablishmentController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'name'=>'required|string|max:45',
+            'phone'=>'nullable|string',
+            'email'=>'nullable|email',
             'address'=>'required|string',
-            'observation'=>'string|nullable'
+            'observation'=>'nullable|string'
         ]);
         Establishment::create($data);
         session()->flash('success','Établissement créé avec succes');
@@ -44,8 +46,10 @@ class EstablishmentController extends Controller
     public function update($id,Request $request){
         $data = $request->validate([
             'name'=>'required|string|max:45',
+            'phone'=>'nullable|string',
+            'email'=>'nullable|email',
             'address'=>'required|string',
-            'observation'=>'string|nullable'
+            'observation'=>'nullable|string'
         ]);
         $establishment = Establishment::findOrFail($id);
         $establishment->update($data);
