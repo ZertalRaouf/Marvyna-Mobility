@@ -37,3 +37,11 @@ Route::get('vehicules/{id}/edit',[\App\Http\Controllers\Web\Admin\VehiculeContro
 Route::put('vehicules/{id}',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'update'])->name('vehicules.update');
 Route::delete('vehicules/{id}',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'destroy'])->name('vehicules.destroy');
 
+Route::get('drivers',[\App\Http\Controllers\Web\Admin\DriverController::class,'index'])->name('drivers.index');
+Route::get('drivers/create',[\App\Http\Controllers\Web\Admin\DriverController::class,'create'])->name('drivers.create');
+Route::post('drivers',[\App\Http\Controllers\Web\Admin\DriverController::class,'store'])->name('drivers.store');
+Route::get('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'show'])->name('drivers.show');
+Route::get('drivers/{id}/edit',[\App\Http\Controllers\Web\Admin\DriverController::class,'edit'])->name('drivers.edit');
+Route::put('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'update'])->name('drivers.update');
+Route::delete('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'destroy'])->name('drivers.destroy');
+
