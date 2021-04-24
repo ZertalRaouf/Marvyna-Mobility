@@ -238,8 +238,6 @@
                                             @enderror
                                         </div>
 
-
-
                                     </div>
 
                                     <hr>
@@ -268,10 +266,5 @@
         <!-- /.content -->
     </section>
 @endsection
-
-@push('js')
-
-@endpush
-
 
 
