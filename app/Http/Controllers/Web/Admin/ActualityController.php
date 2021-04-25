@@ -34,7 +34,7 @@ class ActualityController extends Controller
         if(!$actuality){
             return abort(404,'Actualité introuvable');
         }
-        return view('admin.actualities.show',compact('user'));
+        return view('admin.actualities.show',compact('actuality'));
     }
 
     public function edit($id){
