@@ -44,7 +44,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
+                    <a href="{{route('admin.students.index')}}" class="nav-link {{request()->is('admin/students*') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-graduation-cap"></i>
                         <p>
                             Élèves
