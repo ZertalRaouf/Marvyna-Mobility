@@ -53,3 +53,12 @@ Route::get('establishments/{id}/edit',[\App\Http\Controllers\Web\Admin\Establish
 Route::put('establishments/{id}',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'update'])->name('establishments.update');
 Route::delete('establishments/{id}',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'destroy'])->name('establishments.destroy');
 
+Route::get('students',[\App\Http\Controllers\Web\Admin\StudentController::class,'index'])->name('students.index');
+Route::get('students/create',[\App\Http\Controllers\Web\Admin\StudentController::class,'create'])->name('students.create');
+Route::post('students',[\App\Http\Controllers\Web\Admin\StudentController::class,'store'])->name('students.store');
+Route::get('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'show'])->name('students.show');
+Route::get('students/{id}/edit',[\App\Http\Controllers\Web\Admin\StudentController::class,'edit'])->name('students.edit');
+Route::put('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'update'])->name('students.update');
+Route::delete('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'destroy'])->name('students.destroy');
+
+
