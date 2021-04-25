@@ -61,4 +61,12 @@ Route::get('students/{id}/edit',[\App\Http\Controllers\Web\Admin\StudentControll
 Route::put('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'update'])->name('students.update');
 Route::delete('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'destroy'])->name('students.destroy');
 
+Route::get('actualities',[\App\Http\Controllers\Web\Admin\ActualityController::class,'index'])->name('actualities.index');
+Route::get('actualities/create',[\App\Http\Controllers\Web\Admin\ActualityController::class,'create'])->name('actualities.create');
+Route::post('actualities',[\App\Http\Controllers\Web\Admin\ActualityController::class,'store'])->name('actualities.store');
+Route::get('actualities/{id}',[\App\Http\Controllers\Web\Admin\ActualityController::class,'show'])->name('actualities.show');
+Route::get('actualities/{id}/edit',[\App\Http\Controllers\Web\Admin\ActualityController::class,'edit'])->name('actualities.edit');
+Route::put('actualities/{id}',[\App\Http\Controllers\Web\Admin\ActualityController::class,'update'])->name('actualities.update');
+Route::delete('actualities/{id}',[\App\Http\Controllers\Web\Admin\ActualityController::class,'destroy'])->name('actualities.destroy');
+
 
