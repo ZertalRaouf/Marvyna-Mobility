@@ -20,7 +20,7 @@ class DriverController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'name'=>'required|string|max:45',
-            'email'=>'required|email|unique:users,email',
+            'email'=>'required|email|unique:drivers,email',
             'password'=>'required|min:8'
         ]);
         Driver::create($data);
@@ -44,7 +44,7 @@ class DriverController extends Controller
     public function update($id,Request $request){
         $data = $request->validate([
             'name'=>'required|string|max:45',
-            'email'=>'required|email|unique:users,email,'.$id,
+            'email'=>'required|email|unique:drivers,email,'.$id,
             'password'=>'required|min:8|confirmed'
         ]);
         $data['password'] = bcrypt($data['password']);
