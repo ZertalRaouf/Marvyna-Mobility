@@ -68,9 +68,9 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
+                                        <div class="col-lg-4 mb-3">
                                             <label for="phone"><i class="fas fa-phone-alt mr-1"></i>Numéro de téléphone <span class="text-danger">*</span></label>
-                                            <input id="phone" name="phone" type="text" value="{{old('phone')}}" class="form-control @error('phone') is-invalid @enderror" placeholder="Numéro de téléphone"/>
+                                            <input id="phone" name="phone" type="text" value="{{old('phone',$user->phone)}}" class="form-control @error('phone') is-invalid @enderror" placeholder="Numéro de téléphone"/>
                                             @error('phone')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -78,9 +78,9 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
-                                            <label for="mobile"><i class="fas fa-mobile-alt mr-1"></i>Mobile <span class="text-danger">*</span></label>
-                                            <input id="mobile" name="mobile" type="text" value="{{@old('mobile')}}" class="form-control" placeholder="Mobile"/>
+                                        <div class="col-lg-4 mb-3">
+                                            <label for="mobile"><i class="fas fa-mobile-alt mr-1"></i>Mobile</label>
+                                            <input id="mobile" name="mobile" type="text" value="{{@old('mobile',$user->mobile)}}" class="form-control" placeholder="Mobile"/>
                                             @error('mobile')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -88,9 +88,9 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
+                                        <div class="col-lg-4 mb-3">
                                             <label for="email"><i class="fas fa-envelope mr-1"></i>Adresse email <span class="text-danger">*</span></label>
-                                            <input id="email" name="email" type="text" value="{{old('email',$user->email)}}" class="form-control" placeholder="Adresse email"/>
+                                            <input id="email" name="email" type="text" value="{{@old('email',$user->email)}}" class="form-control" placeholder="Adresse email"/>
                                             @error('email')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -115,7 +115,7 @@
 
                                         <div class="col-lg-12 mb-3">
                                             <label for="address"><i class="fas fa-map-marker-alt mr-1"></i>Adresse <span class="text-danger">*</span></label>
-                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address')}}</textarea>
+                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address',$user->address)}}</textarea>
                                             @error('address')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -125,7 +125,7 @@
 
                                         <div class="col-lg-12 mb-3">
                                             <label for="observation"><i class="fas fa-list-alt mr-1"></i>Observation</label>
-                                            <textarea id="observation" name="observation" rows="3" class="form-control" placeholder="Observation">{{old('observation')}}</textarea>
+                                            <textarea id="observation" name="observation" rows="3" class="form-control" placeholder="Observation">{{old('observation',$user->observation)}}</textarea>
                                         </div>
 
                                     </div>

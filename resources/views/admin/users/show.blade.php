@@ -36,7 +36,13 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-user mr-1"></i>Civilité :</label>
-                                        <p class="text-capitalize">Mr</p>
+                                        <p class="text-capitalize">
+                                            @if($user->civility == '1')
+                                                Mr
+                                            @else
+                                                Mme
+                                            @endif
+                                        </p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
@@ -46,12 +52,12 @@
 
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-phone-alt mr-2"></i>Numéro de téléphone :</label>
-                                        <p class="text-capitalize">0777 66 55 44</p>
+                                        <p class="text-capitalize">{{$user->phone}}</p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-mobile-alt mr-2"></i>Mobile :</label>
-                                        <p class="text-capitalize">0777 66 55 44</p>
+                                        <p class="text-capitalize">{{$user->mobile ?? 'Non renseigné'}}</p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
@@ -61,12 +67,12 @@
 
                                     <div class="col-md-12 mb-3">
                                         <label><i class="fas fa-map-marker-alt mr-2"></i>Adresse :</label>
-                                        <p class="text-capitalize">100 avenue simon bolivar 75019</p>
+                                        <p class="text-capitalize">{{$user->address}}</p>
                                     </div>
 
                                     <div class="col-md-12 mb-3">
                                         <label><i class="fas fa-list-alt mr-2"></i>Observation :</label>
-                                        <p class="text-capitalize">Ceci est une observation</p>
+                                        <p>{{$user->observation ?? 'Non renseigné'}} </p>
                                     </div>
 
                                 </div>

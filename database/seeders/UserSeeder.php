@@ -15,9 +15,14 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'=>'john doe',
+            'civility'=>'1',
+            'name'=>'zertal raouf',
+            'phone'=>'0751535586',
+            'mobile'=>'0123456789',
+            'address'=>'100 avenue simon bolivar 75019',
             'email'=>'user@app.com',
             'password'=>bcrypt('password'),
+            'observation'=>"Ceci est un example d'un profil utilisateur",
         ]);
     }
 }

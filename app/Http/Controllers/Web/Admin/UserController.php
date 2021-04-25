@@ -19,12 +19,17 @@ class UserController extends Controller
 
     public function store(Request $request){
         $data = $request->validate([
+            'civility'=>'required|string',
             'name'=>'required|string|max:45',
+            'address'=>'required|string',
+            'phone'=>'required|string',
+            'mobile'=>'sometimes|nullable|string',
             'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:8'
+            'password'=>'required|min:8',
+            'observation'=>'sometimes|nullable|max:450'
         ]);
         User::create($data);
-        session()->flash('success','utilisateur crée avec succes');
+        session()->flash('success','Utilisateur créé avec succes');
         return redirect()->route('admin.users.index');
     }
 
@@ -43,20 +48,26 @@ class UserController extends Controller
 
     public function update($id,Request $request){
         $data = $request->validate([
+            'civility'=>'required|string',
             'name'=>'required|string|max:45',
+            'address'=>'required|string',
+            'phone'=>'required|string',
+            'mobile'=>'sometimes|nullable|string',
             'email'=>'required|email|unique:users,email,'.$id,
-            'password'=>'required|min:8|confirmed'
+            'password'=>'sometimes|nullable|min:8|confirmed',
+            'observation'=>'sometimes|nullable|max:450'
         ]);
+        $data['password'] = bcrypt($data['password']);
         $user = User::findOrFail($id);
         $user->update($data);
-        session()->flash('success','utilisateur modifié avec succes');
+        session()->flash('success','Utilisateur modifié avec succes');
         return redirect()->route('admin.users.index');
     }
 
     public function destroy($id){
         $user = User::findOrFail($id);
         $user->delete();
-        session()->flash('success','utilisateur supprimé avec succes');
+        session()->flash('success','Utilisateur supprimé avec succes');
         return redirect()->route('admin.users.index');
     }
 
