@@ -70,7 +70,7 @@ Route::put('actualities/{id}',[\App\Http\Controllers\Web\Admin\ActualityControll
 Route::delete('actualities/{id}',[\App\Http\Controllers\Web\Admin\ActualityController::class,'destroy'])->name('actualities.destroy');
 
 Route::get('collaborators',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'index'])->name('collaborators.index');
-Route::get('collaborators/create',[\App\Http\Controllers\Web\Admin\ActualityController::class,'create'])->name('collaborators.create');
+Route::get('collaborators/create',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'create'])->name('collaborators.create');
 Route::post('collaborators',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'store'])->name('collaborators.store');
 Route::get('collaborators/{id}',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'show'])->name('collaborators.show');
 Route::get('collaborators/{id}/edit',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'edit'])->name('collaborators.edit');
