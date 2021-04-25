@@ -47,6 +47,7 @@ class DriverController extends Controller
             'email'=>'required|email|unique:users,email,'.$id,
             'password'=>'required|min:8|confirmed'
         ]);
+        $data['password'] = bcrypt($data['password']);
         $driver = Driver::findOrFail($id);
         $driver->update($data);
         session()->flash('success','Chauffeur modifié avec succes');
