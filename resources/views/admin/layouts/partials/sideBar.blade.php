@@ -71,7 +71,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
+                    <a href="{{route('admin.collaborators.index')}}" class="nav-link {{request()->is('admin/collaborators*') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-handshake"></i>
                         <p>
                             Collaborateurs
