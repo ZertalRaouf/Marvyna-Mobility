@@ -20,8 +20,9 @@ class CollaboratorController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'name'=>'required|string|max:45',
-            'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:8'
+            'email'=>'required|email',
+            'phone'=>'required|string',
+            'observation'=>'sometimes|nullable'
         ]);
         Collaborator::create($data);
         session()->flash('success','Collaborateur crée avec succes');
@@ -44,8 +45,9 @@ class CollaboratorController extends Controller
     public function update($id,Request $request){
         $data = $request->validate([
             'name'=>'required|string|max:45',
-            'email'=>'required|email|unique:users,email,'.$id,
-            'password'=>'required|min:8|confirmed'
+            'email'=>'required|email',
+            'phone'=>'required|string',
+            'observation'=>'sometimes|nullable'
         ]);
         $collaborator = Collaborator::findOrFail($id);
         $collaborator->update($data);
