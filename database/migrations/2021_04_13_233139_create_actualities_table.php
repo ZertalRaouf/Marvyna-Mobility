@@ -17,7 +17,7 @@ class CreateActualitiesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->boolean('is_visible');
             $table->timestamps();
         });
