@@ -19,9 +19,24 @@ class DriverController extends Controller
 
     public function store(Request $request){
         $data = $request->validate([
-            'name'=>'required|string|max:45',
+            'civility'=>'required|string',
+            'first_name'=>'required|string|max:45',
+            'last_name'=>'required|string|max:45',
+            'address'=>'required|string|max:250',
+            'phone'=>'required|string',
+            'mobile'=>'sometimes|nullable|string',
             'email'=>'required|email|unique:drivers,email',
-            'password'=>'required|min:8'
+            'password'=>'required|min:8',
+            'birth_date'=>'required|date',
+            'nationality'=>'required|string|max:45',
+            'place_of_birth'=>'required|date',
+            'security_number'=>'required|string|max:45',
+            'photo'=>'required|file|image|max:10000',
+            'licence_number'=>'required|string|max:45',
+            'licence_expiration_date'=>'required|date',
+            'licence_photo'=>'required|file|image|max:10000',
+            'is_available'=>'required|string',
+            'observation'=>'sometimes|nullable|string|max:450'
         ]);
         Driver::create($data);
         session()->flash('success','Chauffeur créé avec succes');
@@ -43,9 +58,24 @@ class DriverController extends Controller
 
     public function update($id,Request $request){
         $data = $request->validate([
-            'name'=>'required|string|max:45',
+            'civility'=>'required|string',
+            'first_name'=>'required|string|max:45',
+            'last_name'=>'required|string|max:45',
+            'address'=>'required|string|max:250',
+            'phone'=>'required|string',
+            'mobile'=>'sometimes|nullable|string',
             'email'=>'required|email|unique:drivers,email,'.$id,
-            'password'=>'required|min:8|confirmed'
+            'password'=>'required|min:8|confirmed',
+            'birth_date'=>'required|date',
+            'nationality'=>'required|string|max:45',
+            'place_of_birth'=>'required|date',
+            'security_number'=>'required|string|max:45',
+            'photo'=>'required|file|image|max:10000',
+            'licence_number'=>'required|string|max:45',
+            'licence_expiration_date'=>'required|date',
+            'licence_photo'=>'required|file|image|max:10000',
+            'is_available'=>'required|string',
+            'observation'=>'sometimes|nullable|string|max:450'
         ]);
         $data['password'] = bcrypt($data['password']);
         $driver = Driver::findOrFail($id);

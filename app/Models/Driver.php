@@ -16,9 +16,24 @@ class Driver extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'civility',
+        'first_name',
+        'last_name',
+        'address',
+        'phone',
+        'mobile',
         'email',
         'password',
+        'birth_date',
+        'nationality',
+        'place_of_birth',
+        'security_number',
+        'photo',
+        'licence_number',
+        'licence_expiration_date',
+        'licence_photo',
+        'is_available',
+        'observation',
     ];
 
     /**

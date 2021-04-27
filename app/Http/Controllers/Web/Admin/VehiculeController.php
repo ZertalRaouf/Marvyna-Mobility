@@ -36,7 +36,7 @@ class VehiculeController extends Controller
             'initial_number_of_km'=>'required|numeric',
             'mode_of_aquisition'=>'required|integer|max:45',
             'key_double_location'=>'required|string|max:45',
-            'photos'=>'nullable|string',
+            'photos'=>'sometimes|nullable|file|image|max:10000',
             'observation'=>'nullable|string|max:45'
         ]);
         Vehicule::create($data);
