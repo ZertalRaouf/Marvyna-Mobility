@@ -62,7 +62,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
+                    <a href="{{route('admin.circuits.index')}}" class="nav-link {{request()->is('admin/circuits*') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-map-marked-alt"></i>
                         <p>
                             Circuits
@@ -125,7 +125,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
+                    <a href="{{route('admin.roadmaps.index')}}" class="nav-link {{request()->is('admin/roadmaps*') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Feuille De Route

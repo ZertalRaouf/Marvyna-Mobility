@@ -36,7 +36,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <form method="POST" action="{{route('admin.vehicules.store')}}">
+                                <form method="POST" action="{{route('admin.vehicules.store')}}" enctype="multipart/form-data">
 
                                     @csrf
 

@@ -11,12 +11,15 @@ class Circuit extends Model
 
     protected $fillable = [
         'name',
-        'create_date',
         'from_date',
         'direction',
         'observation',
         'driver_id',
         'vehicule_id'
+    ];
+
+    protected $casts = [
+        'from_date' => 'date',
     ];
 
     public function students(){

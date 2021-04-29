@@ -22,16 +22,16 @@ class DriverSeeder extends Seeder
             'mobile'=>'doe',
             'email'=>'driver@app.com',
             'password'=>bcrypt('password'),
-            'birth_date'=>'23-08-1997',
+            'birth_date'=> now()->subYears(24),
             'nationality'=>'algérienne',
             'place_of_birth'=>'constantine',
             'security_number'=>'1234567890',
             'photo'=>'photo link',
-            'licence_number'=>'required|string|max:45',
-            'licence_expiration_date'=>'required|date',
-            'licence_photo'=>'required|file|image|max:10000',
-            'is_available'=>'required|string',
-            'observation'=>'sometimes|nullable|string|max:450'
+            'licence_number'=>'1232255',
+            'licence_expiration_date'=> now()->addYear(),
+            'licence_photo'=>null,
+            'is_available'=>true,
+            'observation'=>'this is a test'
         ]);
     }
 }

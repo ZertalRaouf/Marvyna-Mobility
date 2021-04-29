@@ -76,3 +76,7 @@ Route::get('collaborators/{id}',[\App\Http\Controllers\Web\Admin\CollaboratorCon
 Route::get('collaborators/{id}/edit',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'edit'])->name('collaborators.edit');
 Route::put('collaborators/{id}',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'update'])->name('collaborators.update');
 Route::delete('collaborators/{id}',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'destroy'])->name('collaborators.destroy');
+
+
+Route::resource('circuits',\App\Http\Controllers\Web\Admin\CircuitController::class);
+Route::resource('roadmaps',\App\Http\Controllers\Web\Admin\RoadmapController::class);

@@ -16,10 +16,9 @@ class CreateCircuitsTable extends Migration
         Schema::create('circuits', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('create_date');
             $table->date('from_date');
             $table->string('direction');
-            $table->string('observation');
+            $table->string('observation')->nullable();
             $table->foreignId('driver_id')->constrained()->onDelete('cascade');
             $table->foreignId('vehicule_id')->constrained()->onDelete('cascade');
             $table->timestamps();
