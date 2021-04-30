@@ -33,4 +33,13 @@ class Student extends Model
     public function circuits(){
         return $this->belongsToMany(Circuit::class)->withTimestamps();
     }
+
+    protected $appends = [
+        'image_url'
+    ];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/user1-128x128.jpg');
+    }
 }

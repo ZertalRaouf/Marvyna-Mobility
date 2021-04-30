@@ -55,6 +55,15 @@ class Driver extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'image_url'
+    ];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/user1-128x128.jpg');
+    }
+
     public function circuits(){
         return $this->hasMany(Circuit::class);
     }

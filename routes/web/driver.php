@@ -16,7 +16,7 @@ Route::post('reset-password/{token}',[\App\Http\Controllers\Web\Driver\DriverAut
 
 Route::middleware('auth:driver')->group(static function(){
     Route::any('logout',[App\Http\Controllers\Web\Driver\DriverAuthController::class,'logout'])->name('logout');
-    Route::get('dashboard',function (){
-        return view('driver.dashboard');
-    })->name('dashboard');
+    Route::get('dashboard',[App\Http\Controllers\Web\Driver\DriverController::class,'index'])->name('dashboard');
+    Route::get('settings',[App\Http\Controllers\Web\Driver\DriverController::class,'settings'])->name('settings');
+    Route::post('settings',[App\Http\Controllers\Web\Driver\DriverController::class,'update'])->name('settings.update');
 });

@@ -24,5 +24,7 @@ class UserSeeder extends Seeder
             'password'=>bcrypt('password'),
             'observation'=>"Ceci est un example d'un profil utilisateur",
         ]);
+
+        User::factory(100)->create();
     }
 }

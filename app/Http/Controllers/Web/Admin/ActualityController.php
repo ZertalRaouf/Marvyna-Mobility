@@ -24,6 +24,12 @@ class ActualityController extends Controller
             'image'=>'sometimes|nullable|file|image|max:10000',
             'is_visible'=>'required|integer'
         ]);
+
+        if (array_key_exists('image',$data))
+        {
+            $data['image'] = $data['image']->store('news');
+        }
+
         Actuality::create($data);
         session()->flash('success','Actualité crée avec succes');
         return redirect()->route('admin.actualities.index');

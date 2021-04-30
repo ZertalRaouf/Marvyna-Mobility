@@ -18,6 +18,7 @@
 
 @section('content')
     <section class="content">
+        {{$errors}}
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">

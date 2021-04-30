@@ -15,4 +15,14 @@ class Actuality extends Model
         'image',
         'is_visible'
     ];
+
+    protected $appends = [
+        'image_url'
+    ];
+
+    public function getImageUrlAttribute()
+    {
+
+        return $this->image ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/user1-128x128.jpg');
+    }
 }

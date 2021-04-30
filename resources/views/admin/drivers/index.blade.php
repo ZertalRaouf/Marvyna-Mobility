@@ -64,6 +64,7 @@
                                     <tr>
                                         <th>#ID</th>
                                         <th>Nom et Prénom</th>
+                                        <th>is Available</th>
                                         <th>Date d'ajout</th>
                                         <th>Actions</th>
                                     </tr>
@@ -73,7 +74,8 @@
                                     @foreach($drivers as $key => $driver)
                                     <tr>
                                         <td class="align-middle">{{$key + 1}}</td>
-                                        <td class="align-middle text-capitalize">{{$driver->name}}</td>
+                                        <td class="align-middle text-capitalize">{{$driver->first_name}} {{$driver->last_name}}</td>
+                                        <td class="align-middle">{{$driver->is_available ? 'oui' : 'non'}}</td>
                                         <td class="align-middle">{{$driver->created_at->format('d-m-Y')}}</td>
                                         <td class="text-white align-middle">
                                             <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.drivers.show',$driver->id)}}">

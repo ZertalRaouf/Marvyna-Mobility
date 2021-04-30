@@ -33,5 +33,7 @@ class DriverSeeder extends Seeder
             'is_available'=>true,
             'observation'=>'this is a test'
         ]);
+
+        Driver::factory(100)->create();
     }
 }
