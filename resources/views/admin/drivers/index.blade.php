@@ -64,7 +64,7 @@
                                     <tr>
                                         <th>#ID</th>
                                         <th>Nom et Prénom</th>
-                                        <th>is Available</th>
+                                        <th>Disponibilité</th>
                                         <th>Date d'ajout</th>
                                         <th>Actions</th>
                                     </tr>
@@ -75,7 +75,13 @@
                                     <tr>
                                         <td class="align-middle">{{$key + 1}}</td>
                                         <td class="align-middle text-capitalize">{{$driver->first_name}} {{$driver->last_name}}</td>
-                                        <td class="align-middle">{{$driver->is_available ? 'oui' : 'non'}}</td>
+                                        <td class="align-middle">
+                                            @if($driver->is_available)
+                                                <span class="badge bg-success">Disponible</span>
+                                            @else
+                                                <span class="badge bg-danger">Non Disponible</span>
+                                            @endif
+                                        </td>
                                         <td class="align-middle">{{$driver->created_at->format('d-m-Y')}}</td>
                                         <td class="text-white align-middle">
                                             <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.drivers.show',$driver->id)}}">
