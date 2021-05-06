@@ -10,14 +10,15 @@ class DriverController extends Controller
 {
     public function index()
     {
-        $news = Actuality::orderBy('created_at','desc')->paginate(10);
+        $news = Actuality::orderBy('created_at','desc')->paginate(4);
         $d = auth('driver')->user();
         return view('driver.dashboard',compact('news','d'));
     }
 
     public function settings()
     {
-        return view('driver.settings');
+        $d = auth('driver')->user();
+        return view('driver.settings',compact('d'));
     }
 
     public function update(Request $request)

@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/artisan',['\App\Http\Controllers\Web\ArtisanController','artisan']);
+
+Route::get('/cache',['\App\Http\Controllers\Web\ArtisanController','cache']);

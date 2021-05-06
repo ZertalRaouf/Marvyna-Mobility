@@ -20,7 +20,7 @@ class ActualityController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'title'=>'required|string|max:45',
-            'content'=>'required|string|max:250',
+            'content'=>'required|string|max:500',
             'image'=>'sometimes|nullable|file|image|max:10000',
             'is_visible'=>'required|integer'
         ]);
@@ -51,7 +51,7 @@ class ActualityController extends Controller
     public function update($id,Request $request){
         $data = $request->validate([
             'title'=>'required|string|max:45',
-            'content'=>'required|string|max:250',
+            'content'=>'required|string|max:500',
             'image'=>'sometimes|nullable|file|image|max:10000',
             'is_visible'=>'required|integer'
         ]);

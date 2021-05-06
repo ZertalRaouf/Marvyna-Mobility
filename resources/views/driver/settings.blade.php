@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('driver.layouts.app')
 
 @section('content')
     hello from driver dashboard
