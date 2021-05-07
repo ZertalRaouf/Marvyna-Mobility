@@ -19,9 +19,9 @@
                         <img src="{{$d->image_url}}" alt="user" height="40" style="border-radius: 50%">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right border-0 py-0 shadow-sm mt-0 mt-lg-3" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item py-3" href="#"><i class="fas fa-user text-orange mr-4"></i>Mon profil</a>
+                        <a class="dropdown-item py-3" href="{{route('driver.profile')}}"><i class="fas fa-user text-orange mr-4"></i>Mon profil</a>
                         <div class="dropdown-divider my-0"></div>
-                        <a class="dropdown-item py-3" href="#"><i class="fas fa-cog text-orange mr-4"></i>Paramètres du compte</a>
+                        <a class="dropdown-item py-3" href="{{route('driver.settings')}}"><i class="fas fa-cog text-orange mr-4"></i>Paramètres du compte</a>
                         <div class="dropdown-divider my-0"></div>
                         <a class="dropdown-item py-3" href="{{route('driver.logout')}}"><i class="fas fa-sign-out-alt text-orange mr-4"></i>Déconnexion</a>
                     </div>

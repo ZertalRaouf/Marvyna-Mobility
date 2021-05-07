@@ -31,17 +31,17 @@
                             </div>
 
                             <div class="col-lg-12 mb-2">
-                                <p class="small fw-bold mb-2">Phone Number</p>
+                                <p class="small fw-bold mb-2">Numéro de téléphone</p>
                                 <p>{{$d->phone}}</p>
                             </div>
 
                             <div class="col-lg-12 mb-2">
-                                <p class="small fw-bold mb-2">Email Address</p>
+                                <p class="small fw-bold mb-2">Adresse Email</p>
                                 <p>{{$d->email}}</p>
                             </div>
 
                             <div class="col-lg-12 mb-2">
-                                <p class="small fw-bold mb-2">Account Type</p>
+                                <p class="small fw-bold mb-2">Type de compte</p>
                                 <p>Chauffeur</p>
                             </div>
 
@@ -88,7 +88,7 @@
                             <p class="text-justify">
                                 {{$n->content}}
                             </p>
-                            @if(!$n->image)
+                            @if($n->image)
                             <div class="embed-responsive embed-responsive-16by9">
                                 <div class="embed-responsive-item border-0 bg-muted" alt="image" style="background-image: url('https://lalibreville.com/wp-content/uploads/2020/10/a-paris-capitale-de-la-france-comme-partout-ailleurs-en-europe-lepidemie-de-covid-19-repart-a-la-hausse.jpg');background-position: center;background-size: cover;background-repeat: no-repeat"></div>
                             </div>
@@ -98,7 +98,7 @@
                     </div>
                 @empty
                     <div class="card shadow-sm border-0 bg-white px-0 px-lg-3 mb-3">
-                        <div class="card-body text-muted">
+                        <div class="card-body text-muted text-center">
                             Aucune actualité disponible
                         </div>
                     </div>
@@ -148,4 +148,5 @@
 
         </div>
     </div>
+
 @endsection
