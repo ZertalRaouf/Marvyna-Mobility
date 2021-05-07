@@ -26,7 +26,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light text-capitalize px-0">
 
-            <a class="navbar-brand font-weight-bold" href="index.html">
+            <a class="navbar-brand font-weight-bold" href="{{url('/')}}">
                 <img src="{{asset('assets/front/images/logo2.svg')}}" alt="logo" height="30">
             </a>
 
@@ -44,21 +44,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center my-4 my-lg-0">
-                    <li class="nav-item ml-4">
-                        <a class="nav-link text-dark" href="javascript:void(0)">Accueil</a>
+                    <li class="nav-item ml-0 ml-lg-4">
+                        <a class="nav-link text-dark" href="{{url('/')}}">Accueil</a>
                     </li>
-                    <li class="nav-item ml-4">
+                    <li class="nav-item ml-0 ml-lg-4">
                         <a class="nav-link text-dark" href="javascript:void(0)">À propos</a>
                     </li>
-                    <li class="nav-item ml-4">
+                    <li class="nav-item ml-0 ml-lg-4">
                         <a class="nav-link text-dark" href="javascript:void(0)">Contactez Nous</a>
                     </li>
-                    <li class="nav-item ml-4">
-                        @auth
-                            <a href="{{ url('/')}}" class="btn bg-bootstrap text-white nav-link text-light rounded-pill px-4 shadow-sm mt-4 mt-lg-0">Mon Compte</a>
-                        @else
-                            <a href="{{ route('admin.login.form') }}" class="btn bg-bootstrap text-white nav-link text-light rounded-pill px-4 shadow-sm mt-4 mt-lg-0">Se Connecter</a>
-                        @endauth
+                    <li class="nav-item ml-0 ml-lg-4">
+                        <a href="javascript:void(0)" class="btn bg-bootstrap text-white nav-link rounded-pill px-4 shadow-sm mt-4 mt-lg-0" data-toggle="modal" data-target="#loginModal">Se connecter</a>
                     </li>
                 </ul>
             </div>
@@ -111,19 +107,19 @@
                         <div class="text-capitalize font-weight-bold h5">
                             Marvyna Mobilité
                         </div>
-                        <p class="py-4">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        <p class="mt-5 mb-4 py-0">
+                            Marvyna Mobilité est une société spécialisée dans le secteur d'activité des transports routiers réguliers de voyageurs.
                         </p>
                         <div>
-                            <a href="#" class="mr-4 text-light"
-                            ><i class="fab fa-facebook fa-2x"></i
-                                ></a>
-                            <a href="#" class="mr-4 text-light"
-                            ><i class="fab fa-twitter fa-2x"></i
-                                ></a>
-                            <a href="#" class="text-light"
-                            ><i class="fab fa-instagram fa-2x"></i
-                                ></a>
+                            <a href="#" class="mr-4 text-white text-decoration-none">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a>
+                            <a href="#" class="mr-4 text-white text-decoration-none">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="#" class="text-white text-decoration-none">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -139,7 +135,7 @@
                             Liens utiles
                         </div>
                         <p class="mt-5">
-                            <a href="#" class="text-decoration-none text-light">Procédures d'installation</a>
+                            <a href="https://github.com/ZertalRaouf/Marvyna-Mobility" class="text-decoration-none text-white">Procédures d'installation</a>
                         </p>
                     </div>
                 </div>
@@ -155,16 +151,22 @@
                             Menu
                         </div>
                         <p class="mt-5">
-                            <a href="#" class="text-decoration-none text-light">Accueil</a>
+                            <a href="{{url('/')}}" class="text-decoration-none text-white">Accueil</a>
                         </p>
                         <p>
-                            <a href="#" class="text-decoration-none text-light">À Propos</a>
+                            <a href="#" class="text-decoration-none text-white">À Propos</a>
                         </p>
                         <p>
-                            <a href="#" class="text-decoration-none text-light">Nous Contacter</a>
+                            <a href="#" class="text-decoration-none text-white">Nous Contacter</a>
                         </p>
                         <p>
-                            <a href="#" class="text-decoration-none text-light">Se Connecter</a>
+                            <a href="{{route('admin.login.form')}}" class="text-decoration-none text-white">Compte administrateur</a>
+                        </p>
+                        <p>
+                            <a href="{{route('driver.login.form')}}" class="text-decoration-none text-white">Compte chauffeur</a>
+                        </p>
+                        <p>
+                            <a href="{{route('user.login.form')}}" class="text-decoration-none text-white">Compte parent</a>
                         </p>
                     </div>
                 </div>
@@ -180,14 +182,14 @@
                             Contectez Nous
                         </div>
                         <p class="mt-5">
-                            <i class="fa fa-map-marker-alt mr-2 text-yellow"></i>20bis Jardins Boieldieu, 92200 Puteaux
+                            <i class="fa fa-map-marker-alt mr-2 text-yellow"></i>7 Rue de la Croix Villecoq, 95280 Jouy-le-Moutier
                         </p>
                         <p>
-                            <i class="fas fa-mobile-alt mr-2 text-yellow"></i>+33 751 53 55 86
+                            <i class="fas fa-mobile-alt mr-2 text-yellow"></i>+33 621 82 40 22
 
                         </p>
                         <p>
-                            <i class="fa fa-envelope mr-2 text-yellow"></i>infos@app.com
+                            <i class="fa fa-envelope mr-2 text-yellow"></i>contact@marvyna.com
                         </p>
                     </div>
                 </div>
@@ -208,13 +210,31 @@
             document.write(new Date().getFullYear());
         </script>
         Copyright: © All rights reserved |
-        <a href="javascript:void(0)" class="text-decoration-none text-light">
-            ZERTAL Raouf
+        <a href="https://www.linkedin.com/in/zertalraouf/" class="text-decoration-none text-white">
+            <strong>ZERTAL Raouf</strong>
         </a>
     </div>
     <!-- Copyright -->
 </footer>
 <!-- Footer End -->
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <a href="{{route('user.login.form')}}" class="btn bg-bootstrap text-white nav-link text-white rounded-pill px-4 py-3 shadow-sm mb-4">Compte parent</a>
+                <a href="{{route('driver.login.form')}}" class="btn bg-bootstrap text-white nav-link text-white rounded-pill px-4 py-3 shadow-sm mb-4">Compte chauffeur</a>
+                <a href="{{route('admin.login.form')}}" class="btn bg-bootstrap text-white nav-link text-white rounded-pill px-4 py-3 shadow-sm mb-4">Compte administrateur</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Optional JavaScript; choose one of the two! -->
 <script src="{{asset('assets/front/js/jquery.min.js')}}"></script>
