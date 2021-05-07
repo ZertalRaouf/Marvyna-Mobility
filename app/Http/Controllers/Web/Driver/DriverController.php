@@ -15,6 +15,12 @@ class DriverController extends Controller
         return view('driver.dashboard',compact('news','d'));
     }
 
+    public function profile()
+    {
+        $d = auth('driver')->user();
+        return view('driver.profile',compact('d'));
+    }
+
     public function settings()
     {
         $d = auth('driver')->user();
@@ -37,6 +43,6 @@ class DriverController extends Controller
         }
         auth('driver')->user()->update($data);
 
-        return redirect()->back();
+        return redirect()->route('driver.dashboard');
     }
 }

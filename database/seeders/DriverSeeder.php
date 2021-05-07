@@ -15,23 +15,23 @@ class DriverSeeder extends Seeder
     public function run()
     {
         Driver::create([
-            'first_name'=>'john',
-            'last_name'=>'doe',
-            'address'=>'doe',
-            'phone'=>'doe',
-            'mobile'=>'doe',
+            'first_name'=>'Raouf',
+            'last_name'=>'Zertal',
+            'address'=>'100 avenue simon bolivar 75019',
+            'phone'=>'+33 751 53 55 86',
+            'mobile'=>'+33 751 53 55 86',
             'email'=>'driver@app.com',
             'password'=>bcrypt('password'),
             'birth_date'=> now()->subYears(24),
-            'nationality'=>'algérienne',
-            'place_of_birth'=>'constantine',
+            'nationality'=>'Algérienne',
+            'place_of_birth'=>'Constantine',
             'security_number'=>'1234567890',
             'photo'=>'photo link',
-            'licence_number'=>'1232255',
+            'licence_number'=>'1234567890',
             'licence_expiration_date'=> now()->addYear(),
             'licence_photo'=>null,
             'is_available'=>true,
-            'observation'=>'this is a test'
+            'observation'=>'Ceci est une observation'
         ]);
 
         Driver::factory(100)->create();
