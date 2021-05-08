@@ -21,6 +21,12 @@ class DriverController extends Controller
         return view('driver.profile',compact('d'));
     }
 
+    public function roadmap()
+    {
+        $d = auth('driver')->user();
+        return view('driver.roadmap',compact('d'));
+    }
+
     public function settings()
     {
         $d = auth('driver')->user();
