@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use App\Exports\StudentsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Establishment;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\Types\Parent_;
 
 class StudentController extends Controller
@@ -95,5 +97,10 @@ class StudentController extends Controller
         $student->delete();
         session()->flash('success','Étudiant supprimé avec succes');
         return redirect()->route('admin.students.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.xlsx');
     }
 }

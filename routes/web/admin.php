@@ -28,6 +28,8 @@ Route::get('users/{id}',[\App\Http\Controllers\Web\Admin\UserController::class,'
 Route::get('users/{id}/edit',[\App\Http\Controllers\Web\Admin\UserController::class,'edit'])->name('users.edit');
 Route::put('users/{id}',[\App\Http\Controllers\Web\Admin\UserController::class,'update'])->name('users.update');
 Route::delete('users/{id}',[\App\Http\Controllers\Web\Admin\UserController::class,'destroy'])->name('users.destroy');
+Route::get('export/users',[\App\Http\Controllers\Web\Admin\UserController::class,'export'])->name('users.export');
+
 
 Route::get('vehicules',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'index'])->name('vehicules.index');
 Route::get('vehicules/create',[\App\Http\Controllers\Web\Admin\VehiculeController::class,'create'])->name('vehicules.create');
@@ -44,6 +46,7 @@ Route::get('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::cla
 Route::get('drivers/{id}/edit',[\App\Http\Controllers\Web\Admin\DriverController::class,'edit'])->name('drivers.edit');
 Route::put('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'update'])->name('drivers.update');
 Route::delete('drivers/{id}',[\App\Http\Controllers\Web\Admin\DriverController::class,'destroy'])->name('drivers.destroy');
+Route::get('export/drivers',[\App\Http\Controllers\Web\Admin\DriverController::class,'export'])->name('drivers.export');
 
 Route::get('establishments',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'index'])->name('establishments.index');
 Route::get('establishments/create',[\App\Http\Controllers\Web\Admin\EstablishmentController::class,'create'])->name('establishments.create');
@@ -60,6 +63,8 @@ Route::get('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::c
 Route::get('students/{id}/edit',[\App\Http\Controllers\Web\Admin\StudentController::class,'edit'])->name('students.edit');
 Route::put('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'update'])->name('students.update');
 Route::delete('students/{id}',[\App\Http\Controllers\Web\Admin\StudentController::class,'destroy'])->name('students.destroy');
+Route::get('export/students',[\App\Http\Controllers\Web\Admin\StudentController::class,'export'])->name('students.export');
+
 
 Route::get('actualities',[\App\Http\Controllers\Web\Admin\ActualityController::class,'index'])->name('actualities.index');
 Route::get('actualities/create',[\App\Http\Controllers\Web\Admin\ActualityController::class,'create'])->name('actualities.create');

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use App\Exports\DriversExport;
+use App\Exports\StudentsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DriverController extends Controller
 {
@@ -89,5 +92,10 @@ class DriverController extends Controller
         $driver->delete();
         session()->flash('success','Chauffeur supprimé avec succes');
         return redirect()->route('admin.drivers.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new DriversExport, 'drivers.xlsx');
     }
 }
