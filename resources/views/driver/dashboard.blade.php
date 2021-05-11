@@ -89,7 +89,7 @@
                                 <p class="text-justify">
                                     {{$n->content}}
                                 </p>
-                                @if($n->image)
+                                @if(!$n->image)
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <div class="embed-responsive-item border-0 bg-muted" alt="image" style="background-image: url('https://lalibreville.com/wp-content/uploads/2020/10/a-paris-capitale-de-la-france-comme-partout-ailleurs-en-europe-lepidemie-de-covid-19-repart-a-la-hausse.jpg');background-position: center;background-size: cover;background-repeat: no-repeat"></div>
                                     </div>
@@ -109,7 +109,8 @@
                 </div>
 
                 <div class="col-lg-3 text-center mt-4">
-                    <div class="card border-0 bg-white shadow-sm px-0 px-lg-3">
+
+                    <div class="card border-0 bg-white shadow-sm px-0 px-lg-3 mb-3">
                         <div class="card-body">
 
                             <h4 class="font-weight-bold py-3 text-orange">Mon Planning</h4>
@@ -143,6 +144,19 @@
 
                         </div>
                     </div>
+
+                    <div class="card border-0 bg-white shadow-sm px-0 px-lg-3">
+                        <div class="card-body">
+
+                            <h4 class="font-weight-bold py-3 text-orange">Ma disponibilité</h4>
+
+                            <hr>
+
+                            En cours de réalisation...
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

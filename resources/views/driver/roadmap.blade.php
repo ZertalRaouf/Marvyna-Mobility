@@ -50,6 +50,12 @@
 
                             <p class="text-center mb-0 py-3">
                                 <a href="javascript:void(0)" class="btn bg-green text-white text-decoration-none w-100" data-toggle="modal" data-target="#studentsListModal">
+                                    Partager ma postion
+                                </a>
+                            </p>
+
+                            <p class="text-center mb-0 pb-3">
+                                <a href="javascript:void(0)" class="btn bg-green text-white text-decoration-none w-100" data-toggle="modal" data-target="#studentsListModal">
                                     Liste des élèves
                                 </a>
                             </p>
@@ -63,7 +69,7 @@
                     <div class="card shadow-sm border-0 bg-white px-0 px-lg-3 mb-3">
                         <div class="card-body">
 
-                            <div id="map"></div>
+                            <img src="https://i.stack.imgur.com/PBMLE.jpg" alt="map" width="100%">
 
                         </div>
                     </div>
