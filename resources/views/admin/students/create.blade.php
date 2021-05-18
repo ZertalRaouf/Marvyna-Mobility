@@ -57,7 +57,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="last_name"><i class="fas fa-user mr-1"></i>Nom <span class="text-danger">*</span></label>
-                                            <input id="last_name" name="last_name" type="text" value="{{@old('last_name')}}" class="form-control" placeholder="Nom"/>
+                                            <input id="last_name" name="last_name" type="text" value="{{old('last_name')}}" class="form-control" placeholder="Nom"/>
                                             @error('last_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -67,7 +67,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="first_name"><i class="fas fa-user mr-1"></i>Prénom <span class="text-danger">*</span></label>
-                                            <input id="first_name" name="first_name" type="text" value="{{@old('first_name')}}" class="form-control" placeholder="Prénom"/>
+                                            <input id="first_name" name="first_name" type="text" value="{{old('first_name')}}" class="form-control" placeholder="Prénom"/>
                                             @error('first_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -77,7 +77,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="birth_date"><i class="fas fa-user mr-1"></i>Date de naissance <span class="text-danger">*</span></label>
-                                            <input id="birth_date" name="birth_date" type="date" value="{{@old('birth_date')}}" class="form-control" placeholder="Date de naissance"/>
+                                            <input id="birth_date" name="birth_date" type="date" value="{{old('birth_date')}}" class="form-control" placeholder="Date de naissance"/>
                                             @error('birth_date')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -87,7 +87,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="enter_date"><i class="fas fa-user mr-1"></i>Date d'entrée <span class="text-danger">*</span></label>
-                                            <input id="enter_date" name="enter_date" type="date" value="{{@old('enter_date')}}" class="form-control" placeholder="Date d'entrée"/>
+                                            <input id="enter_date" name="enter_date" type="date" value="{{old('enter_date')}}" class="form-control" placeholder="Date d'entrée"/>
                                             @error('enter_date')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -97,7 +97,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="leave_date"><i class="fas fa-calendar-alt mr-1"></i>Date de sortie <span class="text-danger">*</span></label>
-                                            <input id="leave_date" name="leave_date" type="date" value="{{@old('leave_date')}}" class="form-control" placeholder="Date de sortie"/>
+                                            <input id="leave_date" name="leave_date" type="date" value="{{old('leave_date')}}" class="form-control" placeholder="Date de sortie"/>
                                             @error('leave_date')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -107,7 +107,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="photo"><i class="fas fa-calendar-alt mr-1"></i>Photo <span class="text-danger">*</span></label>
-                                            <input id="photo" name="photo" type="file" value="{{@old('photo')}}" class="form-control" placeholder="Photo"/>
+                                            <input id="photo" name="photo" type="file" class="form-control" placeholder="Photo"/>
                                             @error('photo')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}

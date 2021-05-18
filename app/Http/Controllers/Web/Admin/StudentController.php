@@ -7,14 +7,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Establishment;
 use App\Models\Student;
 use App\Models\User;
+use App\QueryFilter\ClientSearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\Types\Parent_;
 
 class StudentController extends Controller
 {
     public function index(){
-        $students = Student::paginate(10);
+        $students = app(Pipeline::class)
+            ->send(Student::latest()->newQuery())
+            ->through([
+                ClientSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.students.index',compact('students'));
     }
 

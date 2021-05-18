@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Establishment;
+use App\QueryFilter\EstablishmentSearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 
 class EstablishmentController extends Controller
 {
     public function index(){
-        $establishments = Establishment::paginate(10);
+        $establishments = app(Pipeline::class)
+            ->send(Establishment::latest()->newQuery())
+            ->through([
+                EstablishmentSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.establishments.index',compact('establishments'));
     }
 

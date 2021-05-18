@@ -48,8 +48,8 @@
                                         <div class="col-lg-6 mb-3">
                                             <label for="civility"><i class="fas fa-user mr-1"></i>Civilité <span class="text-danger">*</span></label>
                                             <select id="civility" name="civility" type="text" class="custom-select">
-                                                <option value="1">Mr</option>
-                                                <option value="2">Mme</option>
+                                                <option value="Mr" {{$user->civility == 'Mr' ? 'selected' : ''}}>Mr</option>
+                                                <option value="Mme" {{$user->civility == 'Mme' ? 'selected' : ''}}>Mme</option>
                                             </select>
                                             @error('civility')
                                             <span class="text-danger small">
@@ -59,9 +59,19 @@
                                         </div>
 
                                         <div class="col-lg-6 mb-3">
-                                            <label for="name"><i class="fas fa-user mr-1"></i>Nom et prénom <span class="text-danger">*</span></label>
-                                            <input id="name" name="name" type="text" value="{{@old('name',$user->name)}}" class="form-control" placeholder="Nom et prénom"/>
-                                            @error('name')
+                                            <label for="first_name"><i class="fas fa-user mr-1"></i>Nom <span class="text-danger">*</span></label>
+                                            <input id="first_name" name="first_name" type="text" value="{{old('first_name',$user->first_name)}}" class="form-control" placeholder="Nom"/>
+                                            @error('first_name')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="last_name"><i class="fas fa-user mr-1"></i>prénom <span class="text-danger">*</span></label>
+                                            <input id="last_name" name="last_name" type="text" value="{{old('last_name',$user->last_name)}}" class="form-control" placeholder="prénom"/>
+                                            @error('last_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
                                             </span>

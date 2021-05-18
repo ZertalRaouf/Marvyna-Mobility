@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Actuality;
+use App\QueryFilter\ActualitySearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 
 class ActualityController extends Controller
 {
     public function index(){
-        $actualities = Actuality::paginate(10);
+        $actualities = app(Pipeline::class)
+            ->send(Actuality::latest()->newQuery())
+            ->through([
+                ActualitySearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.actualities.index',compact('actualities'));
     }
 

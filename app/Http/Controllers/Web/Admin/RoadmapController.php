@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Circuit;
 use App\Models\Roadmap;
+use App\QueryFilter\RoadmapSearch;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Pipeline;
 
 class RoadmapController extends Controller
 {
@@ -20,7 +22,13 @@ class RoadmapController extends Controller
      */
     public function index()
     {
-        $rms = Roadmap::orderBy('created_at','desc')->paginate(10);
+        $rms = app(Pipeline::class)
+            ->send(Roadmap::latest()->newQuery())
+            ->through([
+                RoadmapSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return  view('admin.roadmaps.index',compact('rms'));
     }
 

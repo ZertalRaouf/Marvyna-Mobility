@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vehicule;
+use App\QueryFilter\VehiculeSearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 
 class VehiculeController extends Controller
 {
     public function index(){
-        $vehicules = Vehicule::paginate(10);
+        $vehicules = app(Pipeline::class)
+            ->send(Vehicule::latest()->newQuery())
+            ->through([
+                VehiculeSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.vehicules.index',compact('vehicules'));
     }
 

@@ -5,13 +5,22 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\QueryFilter\ClientSearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
     public function index(){
-        $users = User::paginate(10);
+        $users = app(Pipeline::class)
+            ->send(User::latest()->newQuery())
+            ->through([
+                ClientSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
+
         return view('admin.users.index',compact('users'));
     }
 
@@ -22,14 +31,16 @@ class UserController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'civility'=>'required|string',
-            'name'=>'required|string|max:45',
-            'address'=>'required|string',
-            'phone'=>'required|string',
-            'mobile'=>'sometimes|nullable|string',
+            'first_name'=>'required|string|max:45',
+            'last_name'=>'required|string|max:45',
+            'address'=>'required|string|max:190',
+            'phone'=>'required|string|max:45',
+            'mobile'=>'sometimes|nullable|string|max:45',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:8',
             'observation'=>'sometimes|nullable|max:450'
         ]);
+        $data['password'] = bcrypt($data['password']);
         User::create($data);
         session()->flash('success','Utilisateur créé avec succes');
         return redirect()->route('admin.users.index');
@@ -51,7 +62,8 @@ class UserController extends Controller
     public function update($id,Request $request){
         $data = $request->validate([
             'civility'=>'required|string',
-            'name'=>'required|string|max:45',
+            'first_name'=>'required|string|max:45',
+            'last_name'=>'required|string|max:45',
             'address'=>'required|string',
             'phone'=>'required|string',
             'mobile'=>'sometimes|nullable|string',
@@ -59,7 +71,11 @@ class UserController extends Controller
             'password'=>'sometimes|nullable|min:8|confirmed',
             'observation'=>'sometimes|nullable|max:450'
         ]);
-        $data['password'] = bcrypt($data['password']);
+        unset($data['password']);
+        if (isset($request->password))
+        {
+            $data['password'] = bcrypt($request->password);
+        }
         $user = User::findOrFail($id);
         $user->update($data);
         session()->flash('success','Utilisateur modifié avec succes');

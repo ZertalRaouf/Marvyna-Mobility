@@ -16,7 +16,8 @@ class UserSeeder extends Seeder
     {
         User::create([
             'civility'=>'1',
-            'name'=>'zertal raouf',
+            'first_name'=>'raouf',
+            'last_name'=>'zertal',
             'phone'=>'0751535586',
             'mobile'=>'0123456789',
             'address'=>'100 avenue simon bolivar 75019',

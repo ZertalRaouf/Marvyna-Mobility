@@ -6,13 +6,22 @@ use App\Exports\DriversExport;
 use App\Exports\StudentsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
+use App\QueryFilter\ClientSearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DriverController extends Controller
 {
     public function index(){
-        $drivers = Driver::paginate(10);
+        $drivers = app(Pipeline::class)
+            ->send(Driver::latest()->newQuery())
+            ->through([
+                ClientSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.drivers.index',compact('drivers'));
     }
 
@@ -26,21 +35,33 @@ class DriverController extends Controller
             'first_name'=>'required|string|max:45',
             'last_name'=>'required|string|max:45',
             'address'=>'required|string|max:250',
-            'phone'=>'required|string',
-            'mobile'=>'sometimes|nullable|string',
+            'phone'=>'required|string|max:45',
+            'mobile'=>'sometimes|nullable|string|max:45',
             'email'=>'required|email|unique:drivers,email',
             'password'=>'required|min:8',
             'birth_date'=>'required|date',
             'nationality'=>'required|string|max:45',
-            'place_of_birth'=>'required|date',
+            'place_of_birth'=>'required|string|max:45',
             'security_number'=>'required|string|max:45',
             'photo'=>'required|file|image|max:10000',
             'licence_number'=>'required|string|max:45',
             'licence_expiration_date'=>'required|date',
             'licence_photo'=>'required|file|image|max:10000',
-            'is_available'=>'required|string',
+            'is_available'=>'required|in:on,off',
             'observation'=>'sometimes|nullable|string|max:450'
         ]);
+
+        $data['is_available'] = $request->is_available == 'on';
+
+        if ($request->hasFile('photo')){
+            $data['photo'] = $request->file('photo')->store('drivers');
+        }
+        if ($request->hasFile('licence_photo')){
+            $data['licence_photo'] = $request->file('licence_photo')->store('drivers');
+        }
+
+        $data['password'] = bcrypt($data['password']);
+
         Driver::create($data);
         session()->flash('success','Chauffeur créé avec succes');
         return redirect()->route('admin.drivers.index');
@@ -68,20 +89,41 @@ class DriverController extends Controller
             'phone'=>'required|string',
             'mobile'=>'sometimes|nullable|string',
             'email'=>'required|email|unique:drivers,email,'.$id,
-            'password'=>'required|min:8|confirmed',
+            'password'=>'sometimes|nullable|min:8|confirmed',
             'birth_date'=>'required|date',
             'nationality'=>'required|string|max:45',
-            'place_of_birth'=>'required|date',
+            'place_of_birth'=>'required|string|max:45',
             'security_number'=>'required|string|max:45',
-            'photo'=>'required|file|image|max:10000',
+            'photo'=>'sometimes|nullable|file|image|max:10000',
             'licence_number'=>'required|string|max:45',
             'licence_expiration_date'=>'required|date',
-            'licence_photo'=>'required|file|image|max:10000',
-            'is_available'=>'required|string',
+            'licence_photo'=>'sometimes|nullable|file|image|max:10000',
+            'is_available'=>'in:on,off',
             'observation'=>'sometimes|nullable|string|max:450'
         ]);
-        $data['password'] = bcrypt($data['password']);
+
+        $data['is_available'] = $request->is_available == 'on';
+
+        unset($data['password']);
+        if (isset($request->password))
+        {
+            $data['password'] = bcrypt($request->password);
+        }
+
         $driver = Driver::findOrFail($id);
+
+        unset($data['photo']);
+        if ($request->hasFile('photo')){
+            Storage::delete($driver->photo);
+            $data['photo'] = $request->file('photo')->store('drivers');
+        }
+
+        unset($data['licence_photo']);
+        if ($request->hasFile('licence_photo')){
+            Storage::delete($driver->licence_photo);
+            $data['licence_photo'] = $request->file('licence_photo')->store('drivers');
+        }
+
         $driver->update($data);
         session()->flash('success','Chauffeur modifié avec succes');
         return redirect()->route('admin.drivers.index');

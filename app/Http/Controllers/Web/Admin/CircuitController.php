@@ -7,12 +7,14 @@ use App\Models\Circuit;
 use App\Models\Driver;
 use App\Models\Student;
 use App\Models\Vehicule;
+use App\QueryFilter\CircuitSearch;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Pipeline;
 
 class CircuitController extends Controller
 {
@@ -23,7 +25,13 @@ class CircuitController extends Controller
      */
     public function index()
     {
-        $cs = Circuit::orderBy('created_at','desc')->paginate(10);
+        $cs = app(Pipeline::class)
+            ->send(Circuit::latest()->newQuery())
+            ->through([
+                CircuitSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.circuits.index',compact('cs'));
     }
 
@@ -108,8 +116,8 @@ class CircuitController extends Controller
             'students'=> 'required|array',
         ]);
 
-        $c = $circuit->update($data);
-        $c->students()->sync($data['students']);
+        $circuit->update($data);
+        $circuit->students()->sync($data['students']);
         session()->flash('success','Success');
         return redirect()->route('admin.circuits.index');
     }

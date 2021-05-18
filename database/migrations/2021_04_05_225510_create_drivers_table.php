@@ -33,7 +33,7 @@ class CreateDriversTable extends Migration
             $table->string('licence_number');
             $table->date('licence_expiration_date');
             $table->string('licence_photo')->nullable();
-            $table->string('is_available');
+            $table->boolean('is_available');
             $table->string('observation')->nullable();
             $table->rememberToken();
             $table->timestamps();

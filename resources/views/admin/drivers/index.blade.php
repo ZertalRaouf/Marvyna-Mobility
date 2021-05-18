@@ -24,6 +24,9 @@
 @endsection
 
 @section('content')
+
+    @include('admin.layouts.partials.messages')
+
     <section class="content">
         <!-- Main content -->
         <section class="content">
@@ -51,7 +54,7 @@
                                     <div class="col-lg-3 mt-4 mt-lg-0">
                                         <form>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="client_search" value="" placeholder="Recherche">
+                                                <input type="text" class="form-control" name="client_search" value="{{request()->get('client_search')}}" placeholder="Recherche">
                                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-info text-white"><i class="fas fa-search"></i></button>
                                             </span>

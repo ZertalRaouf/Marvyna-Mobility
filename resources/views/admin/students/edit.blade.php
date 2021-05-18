@@ -70,7 +70,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="first_name"><i class="fas fa-user mr-1"></i>Prénom <span class="text-danger">*</span></label>
-                                            <input id="first_name" name="first_name" type="text" value="{{@old('first_name',$student->first_name)}}" class="form-control" placeholder="Prénom"/>
+                                            <input id="first_name" name="first_name" type="text" value="{{old('first_name',$student->first_name)}}" class="form-control" placeholder="Prénom"/>
                                             @error('first_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -78,7 +78,35 @@
                                             @enderror
                                         </div>
 
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="birth_date"><i class="fas fa-user mr-1"></i>Date de naissance <span class="text-danger">*</span></label>
+                                            <input id="birth_date" name="birth_date" type="date" value="{{old('birth_date', $student->birth_date)}}" class="form-control" placeholder="Date de naissance"/>
+                                            @error('birth_date')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
 
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="enter_date"><i class="fas fa-user mr-1"></i>Date d'entrée <span class="text-danger">*</span></label>
+                                            <input id="enter_date" name="enter_date" type="date" value="{{old('enter_date', $student->enter_date)}}" class="form-control" placeholder="Date d'entrée"/>
+                                            @error('enter_date')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="leave_date"><i class="fas fa-calendar-alt mr-1"></i>Date de sortie <span class="text-danger">*</span></label>
+                                            <input id="leave_date" name="leave_date" type="date" value="{{old('leave_date', $student->leave_date)}}" class="form-control" placeholder="Date de sortie"/>
+                                            @error('leave_date')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
 
                                         <div class="col-lg-12 mb-3">
                                             <label for="observation"><i class="fas fa-list-alt mr-1"></i>Observation</label>
@@ -114,10 +142,6 @@
                                             </span>
                                             @enderror
                                         </div>
-
-
-
-
 
                                     </div>
 

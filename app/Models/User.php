@@ -18,7 +18,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'civility',
-        'name',
+        'first_name',
+        'last_name',
         'address',
         'phone',
         'mobile',
@@ -45,6 +46,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_nale;
+    }
 
     public function students(){
         return $this->belongsToMany(Student::class);

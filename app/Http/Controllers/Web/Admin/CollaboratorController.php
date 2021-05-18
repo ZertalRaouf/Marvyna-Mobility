@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Collaborator;
+use App\QueryFilter\CollaboratorSearch;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 
 class CollaboratorController extends Controller
 {
     public function index(){
-        $collaborators = Collaborator::paginate(10);
+        $collaborators = app(Pipeline::class)
+            ->send(Collaborator::latest()->newQuery())
+            ->through([
+                CollaboratorSearch::class,
+            ])
+            ->thenReturn()
+            ->paginate(10);
         return view('admin.collaborators.index',compact('collaborators'));
     }
 

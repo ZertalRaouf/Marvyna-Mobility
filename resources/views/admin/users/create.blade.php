@@ -45,8 +45,8 @@
                                         <div class="col-lg-6 mb-3">
                                             <label for="civility"><i class="fas fa-user mr-1"></i>Civilité <span class="text-danger">*</span></label>
                                             <select id="civility" name="civility" type="text" class="custom-select">
-                                                <option value="1">Mr</option>
-                                                <option value="2">Mme</option>
+                                                <option value="Mr" {{old('civility') == 'Mr' ? 'selected' : ''}}>Mr</option>
+                                                <option value="Mme" {{old('civility') == 'Mme' ? 'selected' : ''}}>Mme</option>
                                             </select>
                                             @error('civility')
                                             <span class="text-danger small">
@@ -56,9 +56,19 @@
                                         </div>
 
                                         <div class="col-lg-6 mb-3">
-                                            <label for="name"><i class="fas fa-user mr-1"></i>Nom et prénom <span class="text-danger">*</span></label>
-                                            <input id="name" name="name" type="text" value="{{@old('name')}}" class="form-control" placeholder="Nom et prénom"/>
-                                            @error('name')
+                                            <label for="first_name"><i class="fas fa-user mr-1"></i>Nom <span class="text-danger">*</span></label>
+                                            <input id="first_name" name="first_name" type="text" value="{{old('first_name')}}" class="form-control" placeholder="Nom"/>
+                                            @error('first_name')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="last_name"><i class="fas fa-user mr-1"></i>prénom <span class="text-danger">*</span></label>
+                                            <input id="last_name" name="last_name" type="text" value="{{old('last_name')}}" class="form-control" placeholder="prénom"/>
+                                            @error('last_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
                                             </span>
@@ -77,7 +87,7 @@
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="mobile"><i class="fas fa-mobile-alt mr-1"></i>Mobile</label>
-                                            <input id="mobile" name="mobile" type="text" value="{{@old('mobile')}}" class="form-control" placeholder="Mobile"/>
+                                            <input id="mobile" name="mobile" type="text" value="{{old('mobile')}}" class="form-control" placeholder="Mobile"/>
                                             @error('mobile')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -87,7 +97,7 @@
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="email"><i class="fas fa-envelope mr-1"></i>Adresse email <span class="text-danger">*</span></label>
-                                            <input id="email" name="email" type="text" value="{{@old('email')}}" class="form-control" placeholder="Adresse email"/>
+                                            <input id="email" name="email" type="text" value="{{old('email')}}" class="form-control" placeholder="Adresse email"/>
                                             @error('email')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}

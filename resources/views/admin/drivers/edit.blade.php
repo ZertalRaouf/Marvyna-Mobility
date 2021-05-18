@@ -48,8 +48,8 @@
                                         <div class="col-lg-6 mb-3">
                                             <label for="civility"><i class="fas fa-user mr-1"></i>Civilité <span class="text-danger">*</span></label>
                                             <select id="civility" name="civility" type="text" class="custom-select">
-                                                <option value="1">Mr</option>
-                                                <option value="2">Mme</option>
+                                                <option value="Mr" {{$driver->civility == 'Mr' ? 'selected' : ''}}>Mr</option>
+                                                <option value="Mme" {{$driver->civility == 'Mme' ? 'selected' : ''}}>Mme</option>
                                             </select>
                                             @error('civility')
                                             <span class="text-danger small">
@@ -59,9 +59,19 @@
                                         </div>
 
                                         <div class="col-lg-6 mb-3">
-                                            <label for="name"><i class="fas fa-user mr-1"></i>Nom et prénom <span class="text-danger">*</span></label>
-                                            <input id="name" name="name" type="text" value="{{@old('name',$driver->name)}}" class="form-control" placeholder="Nom et prénom"/>
-                                            @error('name')
+                                            <label for="first_name"><i class="fas fa-user mr-1"></i>Nom et prénom <span class="text-danger">*</span></label>
+                                            <input id="first_name" name="first_name" type="text" value="{{@old('first_name',$driver->first_name)}}" class="form-control" placeholder="Nom et prénom"/>
+                                            @error('first_name')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="last_name"><i class="fas fa-user mr-1"></i>Nom et prénom <span class="text-danger">*</span></label>
+                                            <input id="last_name" name="last_name" type="text" value="{{@old('last_name',$driver->last_name)}}" class="form-control" placeholder="Nom et prénom"/>
+                                            @error('last_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
                                             </span>
@@ -70,7 +80,7 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="phone"><i class="fas fa-phone-alt mr-1"></i>Numéro de téléphone <span class="text-danger">*</span></label>
-                                            <input id="phone" name="phone" type="text" value="{{old('phone')}}" class="form-control @error('phone') is-invalid @enderror" placeholder="Numéro de téléphone"/>
+                                            <input id="phone" name="phone" type="text" value="{{old('phone',$driver->phone)}}" class="form-control @error('phone') is-invalid @enderror" placeholder="Numéro de téléphone"/>
                                             @error('phone')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -80,8 +90,88 @@
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="mobile"><i class="fas fa-mobile-alt mr-1"></i>Mobile <span class="text-danger">*</span></label>
-                                            <input id="mobile" name="mobile" type="text" value="{{@old('mobile')}}" class="form-control" placeholder="Mobile"/>
+                                            <input id="mobile" name="mobile" type="text" value="{{old('mobile', $driver->mobile)}}" class="form-control" placeholder="Mobile"/>
                                             @error('mobile')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="birth_date"><i class="fas fa-mobile-alt mr-1"></i>Date de naissance <span class="text-danger">*</span></label>
+                                            <input id="birth_date" name="birth_date" type="date" value="{{$driver->birth_date}}" class="form-control"/>
+                                            @error('birth_date')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="nationality"><i class="fas fa-mobile-alt mr-1"></i>Nationalité <span class="text-danger">*</span></label>
+                                            <input id="nationality" name="nationality" type="text" value="{{$driver->nationality}}" class="form-control" placeholder="Nationalité"/>
+                                            @error('nationality')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="place_of_birth"><i class="fas fa-mobile-alt mr-1"></i>Lieu de naissance <span class="text-danger">*</span></label>
+                                            <input id="place_of_birth" name="place_of_birth" type="text" value="{{$driver->place_of_birth}}" class="form-control" placeholder="Lieu de naissance"/>
+                                            @error('place_of_birth')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="security_number"><i class="fas fa-mobile-alt mr-1"></i>Numero de securité <span class="text-danger">*</span></label>
+                                            <input id="security_number" name="security_number" type="text" value="{{$driver->security_number}}" class="form-control" placeholder="Numero de securité"/>
+                                            @error('security_number')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="licence_number"><i class="fas fa-mobile-alt mr-1"></i>Numéro de permi <span class="text-danger">*</span></label>
+                                            <input id="licence_number" name="licence_number" type="text" value="{{$driver->licence_number}}" class="form-control" placeholder="Numéro de permi"/>
+                                            @error('licence_number')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="licence_expiration_date"><i class="fas fa-mobile-alt mr-1"></i>Date d'expiration du permi <span class="text-danger">*</span></label>
+                                            <input id="licence_expiration_date" name="licence_expiration_date" type="date" value="{{$driver->licence_expiration_date}}" class="form-control"/>
+                                            @error('licence_expiration_date')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="photo"><i class="fas fa-calendar-alt mr-1"></i>Photo <span class="text-danger">*</span></label>
+                                            <input id="photo" name="photo" type="file" class="form-control" placeholder="Photo"/>
+                                            @error('photo')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="licence_photo"><i class="fas fa-calendar-alt mr-1"></i>Photo du permi <span class="text-danger">*</span></label>
+                                            <input id="licence_photo" name="licence_photo" type="file" class="form-control" placeholder="Photo"/>
+                                            @error('licence_photo')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
                                             </span>
@@ -115,8 +205,18 @@
 
                                         <div class="col-lg-12 mb-3">
                                             <label for="address"><i class="fas fa-map-marker-alt mr-1"></i>Adresse <span class="text-danger">*</span></label>
-                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address')}}</textarea>
+                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address',$driver->address)}}</textarea>
                                             @error('address')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="is_available"><i class="fas fa-lock mr-1"></i>Libre ?</label>
+                                            <input id="is_available" name="is_available" type="checkbox" {{$driver->is_available ? 'checked' : ''}}/>
+                                            @error('is_available')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
                                             </span>
@@ -125,11 +225,21 @@
 
                                         <div class="col-lg-12 mb-3">
                                             <label for="observation"><i class="fas fa-list-alt mr-1"></i>Observation</label>
-                                            <textarea id="observation" name="observation" rows="3" class="form-control" placeholder="Observation">{{old('observation')}}</textarea>
+                                            <textarea id="observation" name="observation" rows="3" class="form-control" placeholder="Observation">{{old('observation',$driver->observation)}}</textarea>
                                         </div>
 
                                     </div>
 
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <hr>
 
                                     <div class="text-right">
