@@ -36,7 +36,7 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-user mr-1"></i>Civilité :</label>
-                                        <p class="text-capitalize">Mr</p>
+                                        <p class="text-capitalize">{{$driver->civility}}</p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
@@ -46,12 +46,12 @@
 
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-phone-alt mr-2"></i>Numéro de téléphone :</label>
-                                        <p class="text-capitalize">0777 66 55 44</p>
+                                        <p class="text-capitalize">{{$driver->phone}}</p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-mobile-alt mr-2"></i>Mobile :</label>
-                                        <p class="text-capitalize">0777 66 55 44</p>
+                                        <p class="text-capitalize">{{$driver->mobile}}</p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
@@ -59,14 +59,49 @@
                                         <p class="text-lowercase">{{$driver->email}}</p>
                                     </div>
 
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-envelope mr-2"></i>Date de naissance :</label>
+                                        <p class="text-lowercase">{{$driver->birth_date}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-envelope mr-2"></i>Nationalité :</label>
+                                        <p class="text-lowercase">{{$driver->nationality}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-envelope mr-2"></i>Lieu de naissance :</label>
+                                        <p class="text-lowercase">{{$driver->place_of_birth}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Numéro de sécurité :</label>
+                                        <p class="text-capitalize">{{$driver->security_number}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Numéro de permi :</label>
+                                        <p class="text-capitalize">{{$driver->licence_number}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Date d'expiration du permi :</label>
+                                        <p class="text-capitalize">{{$driver->licence_expiration_date}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Libre :</label>
+                                        <p class="text-capitalize">{{$driver->is_available ? 'Oui' : 'Non'}}</p>
+                                    </div>
+
                                     <div class="col-md-12 mb-3">
-                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Adresse :</label>
-                                        <p class="text-capitalize">100 avenue simon bolivar 75019</p>
+                                        <label><i class="fas fa-map-marker-alt mr-2"></i>Adress :</label>
+                                        <p class="text-capitalize">{{$driver->address}}</p>
                                     </div>
 
                                     <div class="col-md-12 mb-3">
                                         <label><i class="fas fa-list-alt mr-2"></i>Observation :</label>
-                                        <p class="text-capitalize">Ceci est une observation</p>
+                                        <p class="text-capitalize">{{$driver->observation}}</p>
                                     </div>
 
                                 </div>

@@ -82,6 +82,14 @@ Route::get('collaborators/{id}/edit',[\App\Http\Controllers\Web\Admin\Collaborat
 Route::put('collaborators/{id}',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'update'])->name('collaborators.update');
 Route::delete('collaborators/{id}',[\App\Http\Controllers\Web\Admin\CollaboratorController::class,'destroy'])->name('collaborators.destroy');
 
+//Route::get('subscription',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'index'])->name('subscriptions.index');
+//Route::get('subscription/create',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'create'])->name('subscriptions.create');
+//Route::post('subscription',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'store'])->name('subscriptions.store');
+//Route::get('subscription/{id}',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'show'])->name('subscriptions.show');
+//Route::get('subscription/{id}/edit',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'edit'])->name('subscriptions.edit');
+//Route::put('subscription/{id}',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'update'])->name('subscriptions.update');
+//Route::delete('subscription/{id}',[\App\Http\Controllers\Web\Admin\SubscriptionController::class,'destroy'])->name('subscriptions.destroy');
+
 
 Route::resource('circuits',\App\Http\Controllers\Web\Admin\CircuitController::class);
 Route::resource('roadmaps',\App\Http\Controllers\Web\Admin\RoadmapController::class);

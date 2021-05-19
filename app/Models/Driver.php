@@ -59,6 +59,11 @@ class Driver extends Authenticatable
         'image_url'
     ];
 
+    public function getNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
+
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/user1-128x128.jpg');
