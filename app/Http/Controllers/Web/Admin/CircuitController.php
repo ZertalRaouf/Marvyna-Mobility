@@ -59,6 +59,7 @@ class CircuitController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'from_date'  => 'required|date',
+            'end_date'  => 'required|date',
             'direction' => 'required|string',
             'observation' => 'sometimes|nullable|string',
             'driver_id' => 'required|integer|gt:0|exists:drivers,id',
@@ -109,6 +110,7 @@ class CircuitController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'from_date'  => 'required|date',
+            'end_date'  => 'required|date',
             'direction' => 'required|string',
             'observation' => 'sometimes|nullable|string',
             'driver_id' => 'required|integer|gt:0|exists:drivers,id',

@@ -15,11 +15,13 @@ class Circuit extends Model
         'direction',
         'observation',
         'driver_id',
+        'end_date',
         'vehicule_id'
     ];
 
     protected $casts = [
         'from_date' => 'date',
+        'end_date' => 'date',
     ];
 
     public function students(){

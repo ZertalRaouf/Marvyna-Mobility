@@ -21,6 +21,7 @@ class CreateCircuitsTable extends Migration
             $table->string('observation')->nullable();
             $table->foreignId('driver_id')->constrained()->onDelete('cascade');
             $table->foreignId('vehicule_id')->constrained()->onDelete('cascade');
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

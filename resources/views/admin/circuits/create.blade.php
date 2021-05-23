@@ -127,6 +127,16 @@
                                             @enderror
                                         </div>
 
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="end_date">End Date <span class="text-danger">*</span></label>
+                                            <input id="end_date" name="end_date" type="date" value="{{@old('end_date')}}" class="form-control" placeholder="Date d'immatriculation"/>
+                                            @error('end_date')
+                                            <span class="text-danger small">
+                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                            </span>
+                                            @enderror
+                                        </div>
+
 
 
                                     </div>
