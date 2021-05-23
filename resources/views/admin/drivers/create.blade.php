@@ -200,15 +200,17 @@
                                             <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirmation du mot de passe"/>
                                         </div>
 
-                                        <div class="col-lg-12 mb-3">
-                                            <label for="address"><i class="fas fa-map-marker-alt mr-1"></i>Adresse <span class="text-danger">*</span></label>
-                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address')}}</textarea>
-                                            @error('address')
-                                            <span class="text-danger small">
-                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
-                                            </span>
-                                            @enderror
-                                        </div>
+{{--                                        <div class="col-lg-12 mb-3">--}}
+{{--                                            <label for="address"><i class="fas fa-map-marker-alt mr-1"></i>Adresse <span class="text-danger">*</span></label>--}}
+{{--                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address')}}</textarea>--}}
+{{--                                            @error('address')--}}
+{{--                                            <span class="text-danger small">--}}
+{{--                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}--}}
+{{--                                            </span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
+
+                                        <x-forms.address-input/>
 
                                         <div class="col-lg-6 mb-3">
                                             <label for="is_available"><i class="fas fa-lock mr-1"></i>Libre ?</label>
