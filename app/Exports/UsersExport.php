@@ -34,9 +34,9 @@ class UsersExport implements FromCollection, WithMapping, WithHeadings
         $headings = [
             "Nom",
             "Email",
-            "Num de téléphone",
-            "Num de mobile",
-            "Adress",
+            "Numéro de téléphone",
+            "Mobile",
+            "Adresse",
             "Observation"
         ];
         return $headings;

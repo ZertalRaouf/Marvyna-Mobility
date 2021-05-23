@@ -14,19 +14,24 @@ class StudentsExport implements FromCollection, WithMapping, WithHeadings
     */
     public function collection()
     {
-        return Student::all();
+        return Student::with(['users:id,first_name,last_name,phone'])->get();
     }
 
     public function map($row): array{
-        $fields = [
-            $row->first_name,
+
+        $parent = $row->users->first();
+
+          $fields = [
             $row->last_name,
+            $row->first_name,
             $row->birth_date,
             $row->enter_date,
             $row->leave_date,
             $row->observation,
             $row->specificity,
             $row->disability,
+              $parent? $parent->first_name.' '.$parent->last_name : '/',
+              $parent? $parent->phone : '/',
         ];
         return $fields;
     }
@@ -34,14 +39,16 @@ class StudentsExport implements FromCollection, WithMapping, WithHeadings
     public function headings(): array
     {
         $headings = [
-            "Prenom",
             "Nom",
+            "Prénom",
             "Date de naissance",
-            "Date d'entré'",
+            "Date d'entrée'",
             "Date de sortie",
             "Observation",
             "Specification",
-            "Disability"
+            "Disability",
+            "Parent",
+            "Numéro de téléphone du parent"
         ];
         return $headings;
     }
