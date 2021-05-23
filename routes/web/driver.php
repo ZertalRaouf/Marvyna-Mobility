@@ -21,4 +21,5 @@ Route::middleware('auth:driver')->group(static function(){
     Route::get('roadmap',[App\Http\Controllers\Web\Driver\DriverController::class,'roadmap'])->name('roadmap');
     Route::get('settings',[App\Http\Controllers\Web\Driver\DriverController::class,'settings'])->name('settings');
     Route::post('settings',[App\Http\Controllers\Web\Driver\DriverController::class,'update'])->name('settings.update');
+    Route::post('availabilities',[App\Http\Controllers\Web\Driver\DriverController::class,'availabilityStore'])->name('availabilities.store');
 });

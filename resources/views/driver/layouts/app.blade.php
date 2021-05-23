@@ -61,7 +61,7 @@
 
     <title>Driver Account</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
+    @stack('css')
 </head>
 <body>
 
@@ -135,6 +135,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0LW-Fj2hruSJXj0TnlYitxC28yYbxZZ8&callback=initMap&libraries=&v=weekly"
     async
 ></script>
+@stack('js')
 </body>
 </html>
 

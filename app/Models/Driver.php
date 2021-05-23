@@ -72,4 +72,8 @@ class Driver extends Authenticatable
     public function circuits(){
         return $this->hasMany(Circuit::class);
     }
+
+    public function availabilities(){
+        return $this->hasMany(Availability::class);
+    }
 }

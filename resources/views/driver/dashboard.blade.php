@@ -1,5 +1,13 @@
 @extends('driver.layouts.app')
 
+@push('css')
+
+    <link rel="stylesheet" href="{{asset('assets/admin/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+
+    @endpush
+
 @section('content')
 
     <div class="pb-5">
@@ -21,7 +29,13 @@
                         <div class="card-body">
 
                             <h4 class="font-weight-bold py-3 text-orange">Mes Informations</h4>
-
+                            @foreach($availabilities as $a)
+                                {{$a->date->format('d/m/Y')}}
+                                {{$a->from}}
+                                {{$a->to}}
+                                {{$a->reason}}
+                                {{$a->note}}
+                            @endforeach
                             <hr>
 
                             <div class="row">
@@ -152,7 +166,59 @@
 
                             <hr>
 
-                            En cours de réalisation...
+                            <form action="{{route('driver.availabilities.store')}}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <lable for="date">Date</lable>
+                                    <input type="date" id="date" value="{{old('date')}}"  class="form-control @error('date') is-invalid @enderror" name="date">
+                                    @error('date')
+                                        <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+
+                                <div class="col-lg-12 mb-3">
+                                    <label for="from" class="text-muted font-weight-normal">from <span class="text-danger">*</span></label>
+                                    <div class="input-group date" id="timepicker_from" data-target-input="nearest">
+                                        <input type="text" name="from" value="{{old('from')}}" id="from" class="form-control datetimepicker-input @error('from') is-invalid @enderror" data-target="#timepicker_from"/>
+                                        <div class="input-group-append" data-target="#timepicker_from" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                        </div>
+                                    </div>
+                                    @error('from')
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12 mb-3">
+                                    <label for="from" class="text-muted font-weight-normal">to <span class="text-danger">*</span></label>
+                                    <div class="input-group date" id="timepicker_to" data-target-input="nearest">
+                                        <input type="text" name="to" value="{{old('to')}}" id="to" class="form-control datetimepicker-input @error('to') is-invalid @enderror" data-target="#timepicker_to"/>
+                                        <div class="input-group-append" data-target="#timepicker_to" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                        </div>
+                                    </div>
+                                    @error('to')
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <lable for="reason">reason</lable>
+                                    <input type="text" id="reason" value="{{old('reason')}}"  class="form-control @error('reason') is-invalid @enderror" name="reason">
+                                    @error('reason')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <lable for="note">Note</lable>
+                                    <input type="text" id="note" value="{{old('note')}}"  class="form-control @error('note') is-invalid @enderror" name="note">
+                                    @error('note')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+                                <button type="submit">send</button>
+                            </form>
 
                         </div>
                     </div>
@@ -165,3 +231,23 @@
     </div>
 
 @endsection
+
+
+@push('js')
+
+    <script src="{{asset('assets/admin/plugins/moment/moment.min.js')}}"></script>
+    <script src="{{asset('assets/admin/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <!-- Select2 -->
+    <script src="{{asset('assets/admin/plugins/select2/js/select2.full.min.js')}}"></script>
+
+    <script>
+        $('#timepicker_from').datetimepicker({
+            format: 'HH:mm'
+        });
+        $('#timepicker_to').datetimepicker({
+            format: 'HH:mm'
+        });
+    </script>
+
+@endpush

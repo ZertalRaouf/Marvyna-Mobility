@@ -15,6 +15,11 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('slot_id')
+                ->nullable()->constrained()
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
             $table->string('civility')->nullable();
             $table->string('first_name');
             $table->string('last_name');
@@ -34,8 +39,11 @@ class CreateStudentsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropForeign('students_slot_id_foreign');
+        });
         Schema::dropIfExists('students');
     }
 }

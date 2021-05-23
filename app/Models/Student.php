@@ -20,6 +20,7 @@ class Student extends Model
         'observation',
         'specificity',
         'disability',
+        'slot_id',
     ];
 
     public function users(){
@@ -41,5 +42,10 @@ class Student extends Model
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/user1-128x128.jpg');
+    }
+
+    public function slot()
+    {
+        return $this->belongsTo(Slot::class);
     }
 }

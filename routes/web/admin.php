@@ -93,3 +93,7 @@ Route::delete('collaborators/{id}',[\App\Http\Controllers\Web\Admin\Collaborator
 
 Route::resource('circuits',\App\Http\Controllers\Web\Admin\CircuitController::class);
 Route::resource('roadmaps',\App\Http\Controllers\Web\Admin\RoadmapController::class);
+
+
+Route::resource('slots',\App\Http\Controllers\Web\Admin\SlotController::class)->except('create');
+Route::resource('slot-times',\App\Http\Controllers\Web\Admin\SlotTimeController::class)->except(['create']);
