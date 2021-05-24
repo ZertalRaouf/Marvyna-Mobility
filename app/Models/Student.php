@@ -23,6 +23,11 @@ class Student extends Model
         'slot_id',
     ];
 
+    public function getNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
+
     public function users(){
         return $this->belongsToMany(User::class)->withTimestamps();
     }

@@ -47,7 +47,7 @@ class CircuitController extends Controller
      */
     public function show($id)
     {
-        $circuit = Circuit::findOrFail($id);
+        $circuit = Circuit::findOrFail($id)->load(['students.users', 'driver']);
         if (!auth('driver')->user()->circuits->contains($circuit->id))
         {
             abort(403);

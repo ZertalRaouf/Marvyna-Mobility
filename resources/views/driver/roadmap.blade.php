@@ -1,5 +1,15 @@
 @extends('driver.layouts.app')
 
+@push('css')
+    <style>
+        #map {
+            height: 600px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+@endpush
 @section('content')
 
     <div class="pb-5">
@@ -68,8 +78,8 @@
 
                     <div class="card shadow-sm border-0 bg-white px-0 px-lg-3 mb-3">
                         <div class="card-body">
-
-                            <img src="https://i.stack.imgur.com/PBMLE.jpg" alt="map" width="100%">
+                            <div id="map"></div>
+{{--                            <img src="https://i.stack.imgur.com/PBMLE.jpg" alt="map" width="100%">--}}
 
                         </div>
                     </div>
@@ -104,14 +114,14 @@
                             </thead>
                             <tbody>
 
-                            @for($i = 0 ; $i < 3 ; $i++)
+                                @foreach($circuit->students as $key => $student)
                                 <tr>
-                                    <td class="text-center align-middle">{{$i + 1}}</td>
-                                    <td class="text-center align-middle text-capitalize">nom prénom</td>
-                                    <td class="text-center align-middle">{{($i+1)*2}} rue nom de la rue 7500{{($i+1)*3}}</td>
+                                    <td class="text-center align-middle">{{$key}}</td>
+                                    <td class="text-center align-middle text-capitalize">{{$student->name}}</td>
+                                    <td class="text-center align-middle">{{$student->users->first()->address}}</td>
                                     <td class="text-center text-white align-middle">
 
-                                        <a class="btn bg-green text-white rounded-circle btn-sm" href="Tel: 0751-535-586">
+                                        <a class="btn bg-green text-white rounded-circle btn-sm" href="Tel: {{$student->phone}}">
                                             <i class="fas fa-phone"></i>
                                         </a>
                                         <a class="btn bg-green text-white rounded-circle btn-sm" href="">
@@ -120,7 +130,7 @@
 
                                     </td>
                                 </tr>
-                            @endfor
+                            @endforeach
 
                             </tbody>
 
@@ -134,9 +144,29 @@
 @endsection
 
 @push('js')
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
-        async
-    ></script>
+{{--    <script--}}
+{{--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0LW-Fj2hruSJXj0TnlYitxC28yYbxZZ8&callback=initMap&libraries=&v=weekly"--}}
+{{--        async--}}
+{{--    ></script>--}}
+
+    <script>
+        function initMap() {
+            // The location of Uluru
+            const driver = { lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: driver,
+            });
+            // The marker, positioned at Uluru
+            @foreach($circuit->students as $student)
+            new google.maps.Marker({
+                position: { lat: {{$student->users->first()->latitude}}, lng: {{$student->users->first()->longitude}} },
+                map: map,
+            });
+            @endforeach
+
+        }
+    </script>
 @endpush
 
