@@ -31,7 +31,9 @@ class EstablishmentController extends Controller
             'phone'=>'nullable|string',
             'email'=>'nullable|email',
             'address'=>'required|string',
-            'observation'=>'nullable|string'
+            'observation'=>'nullable|string',
+            'longitude'=>'required|max:90.99999999|min:-90.99999999',
+            'latitude'=>'required|max:90.999999|min:-90.99999999'
         ]);
         Establishment::create($data);
         session()->flash('success','Établissement créé avec succes');
@@ -57,7 +59,9 @@ class EstablishmentController extends Controller
             'phone'=>'nullable|string',
             'email'=>'nullable|email',
             'address'=>'required|string',
-            'observation'=>'nullable|string'
+            'observation'=>'nullable|string',
+            'longitude'=>'required|max:90.99999999|min:-90.99999999',
+            'latitude'=>'required|max:90.999999|min:-90.99999999'
         ]);
         $establishment = Establishment::findOrFail($id);
         $establishment->update($data);

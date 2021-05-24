@@ -239,7 +239,6 @@
                                             Ajouter
                                         </button>
                                     </div>
-
                                 </form>
                             </div>
                             <!-- /.card-body -->

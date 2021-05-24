@@ -33,6 +33,8 @@ class UserFactory extends Factory
             'email'=>$this->faker->unique()->email,
             'password'=>bcrypt('password'),
             'observation'=> $this->faker->sentence,
+            'longitude'=>'20',
+            'latitude'=>'20',
         ];
     }
 

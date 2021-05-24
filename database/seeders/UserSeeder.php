@@ -24,6 +24,8 @@ class UserSeeder extends Seeder
             'email'=>'user@app.com',
             'password'=>bcrypt('password'),
             'observation'=>"Ceci est un example d'un profil utilisateur",
+            'longitude'=>'20',
+            'latitude'=>'20',
         ]);
 
         User::factory(100)->create();

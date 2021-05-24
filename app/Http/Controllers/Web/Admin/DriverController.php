@@ -48,7 +48,9 @@ class DriverController extends Controller
             'licence_expiration_date'=>'required|date',
             'licence_photo'=>'required|file|image|max:10000',
             'is_available'=>'required|in:on,off',
-            'observation'=>'sometimes|nullable|string|max:450'
+            'observation'=>'sometimes|nullable|string|max:450',
+            'longitude'=>'required|max:90.99999999|min:-90.99999999',
+            'latitude'=>'required|max:90.999999|min:-90.99999999'
         ]);
 
         $data['is_available'] = $request->is_available == 'on';
@@ -99,7 +101,9 @@ class DriverController extends Controller
             'licence_expiration_date'=>'required|date',
             'licence_photo'=>'sometimes|nullable|file|image|max:10000',
             'is_available'=>'in:on,off',
-            'observation'=>'sometimes|nullable|string|max:450'
+            'observation'=>'sometimes|nullable|string|max:450',
+            'longitude'=>'required|max:90.99999999|min:-90.99999999',
+            'latitude'=>'required|max:90.999999|min:-90.99999999'
         ]);
 
         $data['is_available'] = $request->is_available == 'on';

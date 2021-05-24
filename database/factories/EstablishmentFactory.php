@@ -26,6 +26,8 @@ class EstablishmentFactory extends Factory
             'email' => $this->faker->unique()->email,
             'address' => $this->faker->address,
             'observation' => $this->faker->sentence,
+            'longitude'=>'20',
+            'latitude'=>'20',
         ];
     }
 }

@@ -31,7 +31,9 @@ class DriverSeeder extends Seeder
             'licence_expiration_date'=> now()->addYear(),
             'licence_photo'=>null,
             'is_available'=>true,
-            'observation'=>'Ceci est une observation'
+            'observation'=>'Ceci est une observation',
+            'longitude'=>'20',
+            'latitude'=>'20',
         ]);
 
         Driver::factory(100)->create();
