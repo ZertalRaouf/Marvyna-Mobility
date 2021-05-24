@@ -123,15 +123,8 @@
                                             <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirmation du nouveau mot de passe"/>
                                         </div>
 
-                                        <div class="col-lg-12 mb-3">
-                                            <label for="address"><i class="fas fa-map-marker-alt mr-1"></i>Adresse <span class="text-danger">*</span></label>
-                                            <textarea id="address" name="address" type="text" rows="3" class="form-control" placeholder="Adresse">{{old('address',$user->address)}}</textarea>
-                                            @error('address')
-                                            <span class="text-danger small">
-                                                <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
-                                            </span>
-                                            @enderror
-                                        </div>
+                                        <x-forms.address-input :address="$user->address" :latitude="$user->latitude" :longitude="$user->longitude"/>
+
 
                                         <div class="col-lg-12 mb-3">
                                             <label for="observation"><i class="fas fa-list-alt mr-1"></i>Observation</label>

@@ -38,7 +38,9 @@ class DriverFactory extends Factory
             'licence_expiration_date'=> now()->addYear(),
             'licence_photo'=>null,
             'is_available'=>true,
-            'observation'=>$this->faker->sentence
+            'observation'=>$this->faker->sentence,
+            'longitude'=>'20',
+            'latitude'=>'20',
         ];
     }
 }

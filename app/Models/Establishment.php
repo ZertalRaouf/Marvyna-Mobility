@@ -13,8 +13,9 @@ class Establishment extends Model
         'name',
         'phone',
         'address',
-        'address',
-        'observation'
+        'observation',
+        'longitude',
+        'latitude'
     ];
 
     public function students(){

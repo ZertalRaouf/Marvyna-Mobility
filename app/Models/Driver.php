@@ -34,6 +34,8 @@ class Driver extends Authenticatable
         'licence_photo',
         'is_available',
         'observation',
+        'longitude',
+        'latitude'
     ];
 
     /**
