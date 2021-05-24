@@ -59,13 +59,15 @@
                             <hr>
 
                             <p class="text-center mb-0 py-3">
-                                <a href="javascript:void(0)" class="btn bg-green text-white text-decoration-none w-100" data-toggle="modal" data-target="#studentsListModal">
+                                <a href="javascript:void(0)" class="btn bg-green text-white text-decoration-none w-100"
+                                   data-toggle="modal" data-target="#studentsListModal">
                                     Partager ma postion
                                 </a>
                             </p>
 
                             <p class="text-center mb-0 pb-3">
-                                <a href="javascript:void(0)" class="btn bg-green text-white text-decoration-none w-100" data-toggle="modal" data-target="#studentsListModal">
+                                <a href="javascript:void(0)" class="btn bg-green text-white text-decoration-none w-100"
+                                   data-toggle="modal" data-target="#studentsListModal">
                                     Liste des élèves
                                 </a>
                             </p>
@@ -79,7 +81,7 @@
                     <div class="card shadow-sm border-0 bg-white px-0 px-lg-3 mb-3">
                         <div class="card-body">
                             <div id="map"></div>
-{{--                            <img src="https://i.stack.imgur.com/PBMLE.jpg" alt="map" width="100%">--}}
+                            {{--                            <img src="https://i.stack.imgur.com/PBMLE.jpg" alt="map" width="100%">--}}
 
                         </div>
                     </div>
@@ -93,7 +95,8 @@
     </div>
 
     <!-- Students List Modal -->
-    <div class="modal fade" id="studentsListModal" tabindex="-1" role="dialog" aria-labelledby="studentsListModalLabel" aria-hidden="true">
+    <div class="modal fade" id="studentsListModal" tabindex="-1" role="dialog" aria-labelledby="studentsListModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -114,14 +117,15 @@
                             </thead>
                             <tbody>
 
-                                @foreach($circuit->students as $key => $student)
+                            @foreach($circuit->students as $key => $student)
                                 <tr>
                                     <td class="text-center align-middle">{{$key}}</td>
                                     <td class="text-center align-middle text-capitalize">{{$student->name}}</td>
                                     <td class="text-center align-middle">{{$student->users->first()->address}}</td>
                                     <td class="text-center text-white align-middle">
 
-                                        <a class="btn bg-green text-white rounded-circle btn-sm" href="Tel: {{$student->phone}}">
+                                        <a class="btn bg-green text-white rounded-circle btn-sm"
+                                           href="Tel: {{$student->phone}}">
                                             <i class="fas fa-phone"></i>
                                         </a>
                                         <a class="btn bg-green text-white rounded-circle btn-sm" href="">
@@ -144,15 +148,17 @@
 @endsection
 
 @push('js')
-{{--    <script--}}
-{{--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0LW-Fj2hruSJXj0TnlYitxC28yYbxZZ8&callback=initMap&libraries=&v=weekly"--}}
-{{--        async--}}
-{{--    ></script>--}}
+    {{--    <script--}}
+    {{--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0LW-Fj2hruSJXj0TnlYitxC28yYbxZZ8&callback=initMap&libraries=&v=weekly"--}}
+    {{--        async--}}
+    {{--    ></script>--}}
 
     <script>
         function initMap() {
+            var marker;
+            var msg;
             // The location of Uluru
-            const driver = { lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} };
+            const driver = {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} };
             // The map, centered at Uluru
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 4,
@@ -160,12 +166,22 @@
             });
             // The marker, positioned at Uluru
             @foreach($circuit->students as $student)
-            new google.maps.Marker({
-                position: { lat: {{$student->users->first()->latitude}}, lng: {{$student->users->first()->longitude}} },
+                marker = new google.maps.Marker({
+                position: {lat: {{$student->users->first()->latitude}}, lng: {{$student->users->first()->longitude}} },
                 map: map,
             });
+            msg = '{!! preg_replace( "/\r|\n/", "<br>", $student->users->first()->address ) !!} <br><a href="https://maps.google.com/?ll={{$student->users->first()->latitude}},{{$student->users->first()->longitude}}" target="_blank">iténeraire</a>'
+            attachSecretMessage(marker, msg);
             @endforeach
 
+            function attachSecretMessage(marker, secretMessage) {
+                const infowindow = new google.maps.InfoWindow({
+                    content: secretMessage,
+                });
+                marker.addListener("click", () => {
+                    infowindow.open(marker.get("map"), marker);
+                });
+            }
         }
     </script>
 @endpush
