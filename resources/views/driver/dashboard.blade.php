@@ -29,13 +29,7 @@
                         <div class="card-body">
 
                             <h4 class="font-weight-bold py-3 text-orange">Mes Informations</h4>
-                            @foreach($availabilities as $a)
-                                {{$a->date->format('d/m/Y')}}
-                                {{$a->from}}
-                                {{$a->to}}
-                                {{$a->reason}}
-                                {{$a->note}}
-                            @endforeach
+
                             <hr>
 
                             <div class="row">
@@ -162,7 +156,7 @@
                     <div class="card border-0 bg-white shadow-sm px-0 px-lg-3">
                         <div class="card-body">
 
-                            <h4 class="font-weight-bold py-3 text-orange">Ma disponibilité</h4>
+                            <h4 class="font-weight-bold py-3 text-orange">Signaler Mon Absence</h4>
 
                             <hr>
 
@@ -220,9 +214,16 @@
                                 </div>
 
                                 <div class="col-12">
+                                    <hr>
+                                </div>
+
+                                <div class="col-12 mt-3">
                                     <button type="submit" class="btn bg-green text-light shadow-sm w-100">Envoyer</button>
                                 </div>
 
+                                <div class="col-12 my-3">
+                                    <a href="javascript:void(0)" class="btn bg-green text-light shadow-sm w-100" data-toggle="modal" data-target="#availabilityModal">Consulter mes absences</a>
+                                </div>
 
                             </form>
 
@@ -234,6 +235,48 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Availability List Modal -->
+    <div class="modal fade" id="availabilityModal" tabindex="-1" role="dialog" aria-labelledby="availabilityModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table id="table" class="table mt-3">
+                            <thead class="bg-green text-white">
+                            <tr>
+                                <th class="align-middle text-center">#ID</th>
+                                <th class="align-middle text-center">Date</th>
+                                <th class="align-middle text-center">Heure</th>
+                                <th class="align-middle text-center">Motif</th>
+                                <th class="align-middle text-center">Détail</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($availabilities as $a)
+                                <tr>
+                                    <td class="text-center align-middle">{{$i + 1}}</td>
+                                    <td class="text-center align-middle text-capitalize">{{$a->date->format('d/m/Y')}}</td>
+                                    <td class="text-center align-middle">de {{$a->from}} à {{$a->to}}</td>
+                                    <td class="text-center align-middle">{{$a->reason}}</td>
+                                    <td class="text-center align-middle">{{$a->note}}</td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

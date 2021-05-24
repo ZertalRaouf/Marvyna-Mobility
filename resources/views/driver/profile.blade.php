@@ -101,7 +101,7 @@
                                 </div>
 
                                 <div class="col-12 text-center text-lg-right">
-                                    <a href="{{route('driver.dashboard')}}" class="btn border-0 rounded-pill shadow-sm bg-green text-white" style="width: 135px">Retour</a>
+                                    <a href="{{route('driver.dashboard')}}" class="btn border-0 shadow-sm bg-green text-white" style="width: 135px">Retour</a>
                                 </div>
                             </div>
 
