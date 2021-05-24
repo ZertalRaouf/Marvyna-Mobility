@@ -7,6 +7,16 @@
                                                     <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
                                                 </span>
     @enderror
+    @error('latitude')
+    <span class="text-danger small">
+                                                    <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                                </span>
+    @enderror
+    @error('longitude')
+    <span class="text-danger small">
+                                                    <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
+                                                </span>
+    @enderror
     <div class="form-group  d-none" id="latitudeArea">
         <label>Latitude</label>
         <input type="text" id="latitude" name="latitude" class="form-control" value="{{$latitude ?? old('latitude')}}">

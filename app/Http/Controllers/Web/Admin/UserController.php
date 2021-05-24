@@ -37,7 +37,7 @@ class UserController extends Controller
             'phone'=>'required|string|max:45',
             'mobile'=>'sometimes|nullable|string|max:45',
             'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:8',
+            'password'=>'required|min:8|confirmed',
             'observation'=>'sometimes|nullable|max:450',
             'longitude'=>'required|max:90.99999999|min:-90.99999999',
             'latitude'=>'required|max:90.999999|min:-90.99999999'

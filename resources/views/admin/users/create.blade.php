@@ -122,7 +122,6 @@
 
                                         <x-forms.address-input/>
 
-
                                         <div class="col-lg-12 mb-3">
                                             <label for="observation"><i class="fas fa-list-alt mr-1"></i>Observation</label>
                                             <textarea id="observation" name="observation" rows="3" class="form-control" placeholder="Observation">{{old('observation')}}</textarea>

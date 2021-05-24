@@ -38,7 +38,7 @@ class DriverController extends Controller
             'phone'=>'required|string|max:45',
             'mobile'=>'sometimes|nullable|string|max:45',
             'email'=>'required|email|unique:drivers,email',
-            'password'=>'required|min:8',
+            'password'=>'required|min:8|confirmed',
             'birth_date'=>'required|date',
             'nationality'=>'required|string|max:45',
             'place_of_birth'=>'required|string|max:45',
