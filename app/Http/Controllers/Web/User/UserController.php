@@ -12,7 +12,15 @@ class UserController extends Controller
     {
         $news = Actuality::orderBy('created_at','desc')->paginate(10);
         $u = auth('user')->user();
-        return view('user.dashboard',compact('news','u'));
+        $circuits = collect();
+        foreach ($u->students as $student)
+        {
+            foreach ($student->circuits as $circuit)
+            {
+                $circuits->add($circuit);
+            }
+        }
+        return view('user.dashboard',compact('news','u', 'circuits'));
     }
 
     public function settings()

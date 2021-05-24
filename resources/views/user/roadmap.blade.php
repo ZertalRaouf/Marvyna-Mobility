@@ -1,5 +1,16 @@
 @extends('driver.layouts.app')
 
+@push('css')
+    <style>
+        #map {
+            height: 600px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+@endpush
+
 @section('content')
 
     <div class="pb-5">
@@ -21,22 +32,22 @@
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Date</p>
-                                    <p class="text-capitalize">24-05-2021</p>
+                                    <p class="text-capitalize">{{$circuit->from_date->format('d-m-Y')}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Nombre d'élèves</p>
-                                    <p>5</p>
+                                    <p>{{$circuit->students->count()}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Circuit</p>
-                                    <p>Nom du circuit</p>
+                                    <p>{{$circuit->name}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Direction</p>
-                                    <p>Point A - Point B</p>
+                                    <p>{{$circuit->direction}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
@@ -98,14 +109,15 @@
                             </thead>
                             <tbody>
 
-                            @for($i = 0 ; $i < 3 ; $i++)
+                            @foreach($circuit->students as $key => $student)
                                 <tr>
-                                    <td class="text-center align-middle">{{$i + 1}}</td>
-                                    <td class="text-center align-middle text-capitalize">nom prénom</td>
-                                    <td class="text-center align-middle">{{($i+1)*2}} rue nom de la rue 7500{{($i+1)*3}}</td>
+                                    <td class="text-center align-middle">{{$key}}</td>
+                                    <td class="text-center align-middle text-capitalize">{{$student->name}}</td>
+                                    <td class="text-center align-middle">{{$student->users->first()->address}}</td>
                                     <td class="text-center text-white align-middle">
 
-                                        <a class="btn bg-green text-white rounded-circle btn-sm" href="Tel: 0751-535-586">
+                                        <a class="btn bg-green text-white rounded-circle btn-sm"
+                                           href="Tel: {{$student->phone}}">
                                             <i class="fas fa-phone"></i>
                                         </a>
                                         <a class="btn bg-green text-white rounded-circle btn-sm" href="">
@@ -114,7 +126,7 @@
 
                                     </td>
                                 </tr>
-                            @endfor
+                            @endforeach
 
                             </tbody>
 
@@ -128,3 +140,39 @@
 @endsection
 
 
+@push('js')
+    {{--    <script--}}
+    {{--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0LW-Fj2hruSJXj0TnlYitxC28yYbxZZ8&callback=initMap&libraries=&v=weekly"--}}
+    {{--        async--}}
+    {{--    ></script>--}}
+
+    <script>
+        function initMap() {
+            var marker;
+            var msg;
+            // The location of Uluru
+            const driver = {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: driver,
+            });
+            // The marker, positioned at Uluru
+            marker = new google.maps.Marker({
+                position: {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} },
+                map: map,
+            });
+            msg = '{!! preg_replace( "/\r|\n/", "<br>", $circuit->driver->address ) !!} <br><a href="https://maps.google.com/?ll={{$circuit->driver->latitude}},{{$circuit->driver->longitude}}" target="_blank">iténeraire</a>'
+            attachSecretMessage(marker, msg);
+
+            function attachSecretMessage(marker, secretMessage) {
+                const infowindow = new google.maps.InfoWindow({
+                    content: secretMessage,
+                });
+                marker.addListener("click", () => {
+                    infowindow.open(marker.get("map"), marker);
+                });
+            }
+        }
+    </script>
+@endpush

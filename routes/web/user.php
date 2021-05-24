@@ -19,6 +19,8 @@ Route::middleware('auth:user')->group(static function(){
     Route::get('dashboard',[App\Http\Controllers\Web\User\UserController::class,'index'])->name('dashboard');
     Route::get('profile',[App\Http\Controllers\Web\User\UserController::class,'profile'])->name('profile');
     Route::get('roadmap',[App\Http\Controllers\Web\User\UserController::class,'roadmap'])->name('roadmap');
+    Route::get('circuit/{id}',[App\Http\Controllers\Web\User\CircuitController::class,'show'])->name('circuit.show');
+
     Route::get('settings',[App\Http\Controllers\Web\User\UserController::class,'settings'])->name('settings');
     Route::post('settings',[App\Http\Controllers\Web\User\UserController::class,'update'])->name('settings.update');
 });

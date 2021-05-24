@@ -105,7 +105,30 @@
 
                             <hr>
 
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-green text-white">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>itineraire</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
+                                    @foreach($circuits as $circuit)
+                                        <tr>
+                                            <td>{{$circuit->from_date->format('d-m-Y')}}</td>
+                                            <td>
+                                                <a href="{{route('user.circuit.show', $circuit->id)}}" class="text-decoration-none text-green">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
                     </div>

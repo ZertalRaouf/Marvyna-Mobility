@@ -8,7 +8,7 @@ class navbar
 {
     public function compose(View $view)
     {
-        $d = auth('driver')->user();
+        $d = auth()->user();
         return $view->with('d',$d);
     }
 }
