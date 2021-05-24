@@ -262,7 +262,7 @@
 
                             @foreach($availabilities as $a)
                                 <tr>
-                                    <td class="text-center align-middle">{{$i + 1}}</td>
+                                    <td class="text-center align-middle">{{$a->id}}</td>
                                     <td class="text-center align-middle text-capitalize">{{$a->date->format('d/m/Y')}}</td>
                                     <td class="text-center align-middle">de {{$a->from}} à {{$a->to}}</td>
                                     <td class="text-center align-middle">{{$a->reason}}</td>
