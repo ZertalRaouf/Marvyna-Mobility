@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Driver;
 use App\Http\Controllers\Controller;
 use App\Models\Actuality;
 use App\Models\Availability;
+use App\Models\Circuit;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -13,8 +14,9 @@ class DriverController extends Controller
     {
         $news = Actuality::orderBy('created_at','desc')->paginate(4);
         $availabilities = Availability::where('driver_id',auth('driver')->id())->paginate(10);
+        $circuits = Circuit::where('driver_id',auth('driver')->id())->paginate(10);
         $d = auth('driver')->user();
-        return view('driver.dashboard',compact('news','d','availabilities'));
+        return view('driver.dashboard',compact('news','d','availabilities', 'circuits'));
     }
 
     public function profile()

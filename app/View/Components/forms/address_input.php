@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\layouts\forms;
+namespace App\View\Components\forms;
 
 use Illuminate\View\Component;
 
-class address-input extends Component
+class address_input extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class address-input extends Component
      */
     public function render()
     {
-        return view('components.layouts.forms.address-input');
+        return view('components.forms.address-input');
     }
 }

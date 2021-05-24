@@ -135,16 +135,16 @@
                                     </thead>
                                     <tbody>
 
-                                    @for($i=0;$i<2;$i++)
+                                        @foreach($circuits as $circuit)
                                         <tr>
-                                            <td>24-05-2021</td>
+                                            <td>{{$circuit->from_date->format('d-m-Y')}}</td>
                                             <td>
-                                                <a href="{{route('driver.roadmap')}}" class="text-decoration-none text-green">
+                                                <a href="{{route('driver.circuit.show', $circuit->id)}}" class="text-decoration-none text-green">
                                                     <i class="fas fa-map-marker-alt"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                    @endfor
+                                        @endforeach
 
                                     </tbody>
                                 </table>

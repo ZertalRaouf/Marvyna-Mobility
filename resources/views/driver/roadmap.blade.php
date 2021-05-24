@@ -21,22 +21,22 @@
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Date</p>
-                                    <p class="text-capitalize">24-05-2021</p>
+                                    <p class="text-capitalize">{{$circuit->from_date->format('d-m-Y')}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Nombre d'élèves</p>
-                                    <p>5</p>
+                                    <p>{{$circuit->students->count()}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Circuit</p>
-                                    <p>Nom du circuit</p>
+                                    <p>{{$circuit->name}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
                                     <p class="small fw-bold mb-2">Direction</p>
-                                    <p>Point A - Point B</p>
+                                    <p>{{$circuit->direction}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-2">
@@ -133,4 +133,10 @@
 
 @endsection
 
+@push('js')
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+        async
+    ></script>
+@endpush
 
