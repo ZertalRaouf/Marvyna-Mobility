@@ -103,7 +103,7 @@
                                 <p class="text-justify">
                                     {{$n->content}}
                                 </p>
-                                @if(!$n->image)
+                                @if($n->image)
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <div class="embed-responsive-item border-0 bg-muted" alt="image" style="background-image: url('https://lalibreville.com/wp-content/uploads/2020/10/a-paris-capitale-de-la-france-comme-partout-ailleurs-en-europe-lepidemie-de-covid-19-repart-a-la-hausse.jpg');background-position: center;background-size: cover;background-repeat: no-repeat"></div>
                                     </div>
@@ -166,19 +166,19 @@
 
                             <hr>
 
-                            <form action="{{route('driver.availabilities.store')}}" method="post">
+                            <form class="form-row text-center text-lg-left" action="{{route('driver.availabilities.store')}}" method="post">
                                 @csrf
-                                <div class="form-group">
-                                    <lable for="date">Date</lable>
-                                    <input type="date" id="date" value="{{old('date')}}"  class="form-control @error('date') is-invalid @enderror" name="date">
+
+                                <div class="col-12 mb-3">
+                                    <lable for="date" class="small">Date <span class="text-danger">*</span></lable>
+                                    <input type="date" id="date" value="{{old('date')}}" class="form-control @error('date') is-invalid @enderror" name="date">
                                     @error('date')
-                                        <div class="invalid-feedback">{{$message}}</div>
+                                    <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
 
-
-                                <div class="col-lg-12 mb-3">
-                                    <label for="from" class="text-muted font-weight-normal">from <span class="text-danger">*</span></label>
+                                <div class="col-lg-6 mb-3">
+                                    <lable for="date" class="small">De <span class="text-danger">*</span></lable>
                                     <div class="input-group date" id="timepicker_from" data-target-input="nearest">
                                         <input type="text" name="from" value="{{old('from')}}" id="from" class="form-control datetimepicker-input @error('from') is-invalid @enderror" data-target="#timepicker_from"/>
                                         <div class="input-group-append" data-target="#timepicker_from" data-toggle="datetimepicker">
@@ -190,8 +190,8 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-lg-12 mb-3">
-                                    <label for="from" class="text-muted font-weight-normal">to <span class="text-danger">*</span></label>
+                                <div class="col-lg-6 mb-3">
+                                    <lable for="date" class="small">A <span class="text-danger">*</span></lable>
                                     <div class="input-group date" id="timepicker_to" data-target-input="nearest">
                                         <input type="text" name="to" value="{{old('to')}}" id="to" class="form-control datetimepicker-input @error('to') is-invalid @enderror" data-target="#timepicker_to"/>
                                         <div class="input-group-append" data-target="#timepicker_to" data-toggle="datetimepicker">
@@ -203,21 +203,27 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
-                                    <lable for="reason">reason</lable>
+                                <div class="col-12 mb-3">
+                                    <lable for="reason" class="small">Motif <span class="text-danger">*</span></lable>
                                     <input type="text" id="reason" value="{{old('reason')}}"  class="form-control @error('reason') is-invalid @enderror" name="reason">
                                     @error('reason')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                    <lable for="note">Note</lable>
-                                    <input type="text" id="note" value="{{old('note')}}"  class="form-control @error('note') is-invalid @enderror" name="note">
+
+                                <div class="col-12 mb-3">
+                                    <lable for="note" class="small">Détail <span class="text-muted">(optionnel)</span></lable>
+                                    <textarea rows="3" id="note" class="form-control @error('note') is-invalid @enderror" name="note">{{old('note')}}</textarea>
                                     @error('note')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>
-                                <button type="submit">send</button>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn bg-green text-light shadow-sm w-100">Envoyer</button>
+                                </div>
+
+
                             </form>
 
                         </div>
