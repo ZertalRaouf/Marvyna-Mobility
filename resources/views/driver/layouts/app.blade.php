@@ -72,64 +72,85 @@
 <!-- Content Section Start -->
 @yield('content')
 <!-- Content Section End -->
-
+{{--<div id="map"></div>--}}
 <!-- jQuery first, then Popper.js, then Bootstrap JS LTR -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+{{--<script>--}}
+{{--    // Note: This example requires that you consent to location sharing when--}}
+{{--    // prompted by your browser. If you see the error "The Geolocation service--}}
+{{--    // failed.", it means you probably did not give permission for the browser to--}}
+{{--    // locate you.--}}
+{{--    let map, infoWindow;--}}
+
+{{--    function initMap() {--}}
+{{--        map = new google.maps.Map(document.getElementById("map"), {--}}
+{{--            center: { lat: -34.397, lng: 150.644 },--}}
+{{--            zoom: 6,--}}
+{{--        });--}}
+{{--        infoWindow = new google.maps.InfoWindow();--}}
+{{--        const locationButton = document.createElement("button");--}}
+{{--        locationButton.textContent = "Pan to Current Location";--}}
+{{--        locationButton.classList.add("custom-map-control-button");--}}
+{{--        map.controls[google.maps.ControlPosition.TOP_CENTER].push(--}}
+{{--            locationButton--}}
+{{--        );--}}
+{{--        locationButton.addEventListener("click", () => {--}}
+{{--            // Try HTML5 geolocation.--}}
+{{--            if (navigator.geolocation) {--}}
+{{--                navigator.geolocation.getCurrentPosition(--}}
+{{--                    (position) => {--}}
+{{--                        const pos = {--}}
+{{--                            lat: position.coords.latitude,--}}
+{{--                            lng: position.coords.longitude,--}}
+{{--                        };--}}
+{{--                        infoWindow.setPosition(pos);--}}
+{{--                        infoWindow.setContent("Location found.");--}}
+{{--                        infoWindow.open(map);--}}
+{{--                        map.setCenter(pos);--}}
+{{--                    },--}}
+{{--                    () => {--}}
+{{--                        handleLocationError(true, infoWindow, map.getCenter());--}}
+{{--                    }--}}
+{{--                );--}}
+{{--            } else {--}}
+{{--                // Browser doesn't support Geolocation--}}
+{{--                handleLocationError(false, infoWindow, map.getCenter());--}}
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
+
+{{--    function handleLocationError(browserHasGeolocation, infoWindow, pos) {--}}
+{{--        infoWindow.setPosition(pos);--}}
+{{--        infoWindow.setContent(--}}
+{{--            browserHasGeolocation--}}
+{{--                ? "Error: The Geolocation service failed."--}}
+{{--                : "Error: Your browser doesn't support geolocation."--}}
+{{--        );--}}
+{{--        infoWindow.open(map);--}}
+{{--    }--}}
+{{--</script>--}}
 <script>
-    // Note: This example requires that you consent to location sharing when
-    // prompted by your browser. If you see the error "The Geolocation service
-    // failed.", it means you probably did not give permission for the browser to
-    // locate you.
-    let map, infoWindow;
+    $( document ).ready(function (){
+        if ("geolocation" in navigator) {
+            var driverWatch = navigator.geolocation.watchPosition(function(position) {
+                // faireQqc(position.coords.latitude, position.coords.longitude);
+                $.post( "{{route('driver.position.update')}}", { position_latitude: position.coords.latitude, position_longitude: position.coords.longitude, _token: "{{csrf_token()}}" } );
+            });
+            // navigator.geolocation.getCurrentPosition(function(position) {
+            //     //faireQqc(position.coords.latitude, position.coords.longitude);
+            //     console.log(position.coords.latitude)
+            // });
+        } else {
+            /* la géolocalisation n'est pas disponible */
+        }
+    })
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 6,
-        });
-        infoWindow = new google.maps.InfoWindow();
-        const locationButton = document.createElement("button");
-        locationButton.textContent = "Pan to Current Location";
-        locationButton.classList.add("custom-map-control-button");
-        map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-            locationButton
-        );
-        locationButton.addEventListener("click", () => {
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        };
-                        infoWindow.setPosition(pos);
-                        infoWindow.setContent("Location found.");
-                        infoWindow.open(map);
-                        map.setCenter(pos);
-                    },
-                    () => {
-                        handleLocationError(true, infoWindow, map.getCenter());
-                    }
-                );
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-        });
-    }
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-            browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
-        );
-        infoWindow.open(map);
-    }
 </script>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0LW-Fj2hruSJXj0TnlYitxC28yYbxZZ8&callback=initMap&libraries=&v=weekly"

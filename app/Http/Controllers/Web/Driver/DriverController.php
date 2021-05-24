@@ -71,4 +71,19 @@ class DriverController extends Controller
         session()->flash('flash','availability created');
         return back();
     }
+
+
+    public function updatePosition(Request $request)
+    {
+        $request->validate([
+            'position_latitude' => 'required|numeric',
+            'position_longitude' => 'required|numeric',
+
+        ]);
+        $driver = auth()->user();
+        $driver->position_latitude = $request->position_latitude;
+        $driver->position_longitude = $request->position_longitude;
+        $driver->update();
+
+    }
 }
