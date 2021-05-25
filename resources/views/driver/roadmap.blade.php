@@ -158,7 +158,7 @@
             var marker;
             var msg;
             // The location of Uluru
-            const driver = {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} };
+            const driver = {lat: {{$circuit->driver->position_latitude}}, lng: {{$circuit->driver->position_longitude}} };
             // The map, centered at Uluru
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 4,
@@ -170,9 +170,17 @@
                 position: {lat: {{$student->users->first()->latitude}}, lng: {{$student->users->first()->longitude}} },
                 map: map,
             });
-            msg = '{!! preg_replace( "/\r|\n/", "<br>", $student->users->first()->address ) !!} <br><a href="https://maps.google.com/?ll={{$student->users->first()->latitude}},{{$student->users->first()->longitude}}" target="_blank">iténeraire</a>'
+            msg = '{!! preg_replace( "/\r|\n/", "<br>", $student->users->first()->address ) !!} <br><a href="https://maps.google.com/?q={{$student->users->first()->latitude}},{{$student->users->first()->longitude}}" target="_blank">iténeraire</a>'
             attachSecretMessage(marker, msg);
             @endforeach
+
+                var driver_marker = new google.maps.Marker({
+                position: {lat: {{$circuit->driver->position_latitude}}, lng: {{$circuit->driver->position_longitude}} },
+                map: map,
+            });
+            msg = 'Je suis la'
+            attachSecretMessage(driver_marker, msg);
+
 
             function attachSecretMessage(marker, secretMessage) {
                 const infowindow = new google.maps.InfoWindow({
