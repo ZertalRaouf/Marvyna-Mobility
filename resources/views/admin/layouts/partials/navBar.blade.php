@@ -11,8 +11,8 @@
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-link"><a href="{{route('driver.dashboard')}}"><i class="fas fa-home text-info"></i></a></li>
-        <li class="nav-link"><a href="{{route('driver.settings')}}" onclick="document.getElementById('logout-from').submit()"><i class="fas fa-sign-out-alt text-info"></i></a></li>
+        <li class="nav-link"><a href="{{route('admin.dashboard')}}"><i class="fas fa-home text-info"></i></a></li>
+        <li class="nav-link"><a href="javascript:void(0)" onclick="document.getElementById('logout-from').submit()"><i class="fas fa-sign-out-alt text-info"></i></a></li>
         <form action="{{route('admin.logout')}}" method="POST" id="logout-from">@csrf</form>
 
     </ul>
