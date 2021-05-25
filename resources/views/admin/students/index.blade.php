@@ -46,8 +46,6 @@
                                 <div class="row d-flex justify-content-between mb-3">
                                     <div class="col-md-auto text-center">
                                         <a href="{{route('admin.students.create')}}" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-plus"></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-file-pdf"></i></a>
-{{--                                        <a href="javascript:void(0)" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-file-upload"></i></a>--}}
                                         <a href="{{route('admin.students.export')}}" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-file-download"></i></a>
                                     </div>
                                     <div class="col-lg-3 mt-4 mt-lg-0">

@@ -35,30 +35,74 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label><i class="fas fa-user mr-1"></i>Civilité :</label>
-                                        <p class="text-capitalize">Mr</p>
+                                        <label><i class="fas fa-user mr-1"></i>Sexe :</label>
+                                        <p class="text-capitalize">
+                                            @if($student->civility=='1')
+                                                Masculin
+                                            @else
+                                                Feminin
+                                            @endif
+                                        </p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-user mr-2"></i>Nom et prénom :</label>
-                                        <p class="text-capitalize">{{$student->first_name}}</p>
+                                        <p class="text-capitalize">{{$student->first_name}} {{$student->last_name}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-user mr-2"></i>Date de naissance :</label>
+                                        <p class="text-capitalize">{{$student->birth_date}}</p>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label><i class="fas fa-user mr-2"></i>Parents :</label>
                                         <p class="text-capitalize">
                                             @foreach($student->users as $parent)
-                                                <span>
+                                                <span class="badge bg-info">
                                                     {{$parent->name}}
                                                 </span>
                                             @endforeach
                                         </p>
                                     </div>
 
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-school mr-2"></i>Etablissement :</label>
+                                        <p class="text-capitalize">
+                                            @foreach($student->establishments as $parent)
+                                                <span class="badge bg-info">
+                                                    {{$parent->name}}
+                                                </span>
+                                            @endforeach
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-calendar mr-2"></i>Date d'entrée :</label>
+                                        <p class="text-capitalize">{{$student->enter_date}}</p>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label><i class="fas fa-calendar mr-2"></i>Date de sortie :</label>
+                                        <p class="text-capitalize">{{$student->leave ?? 'Non disponible'}}</p>
+                                    </div>
+
+
+
 
                                     <div class="col-md-12 mb-3">
                                         <label><i class="fas fa-list-alt mr-2"></i>Observation :</label>
-                                        <p class="text-capitalize">Ceci est une observation</p>
+                                        <p class="text-capitalize">{{$student->observation ?? 'Aucune'}}</p>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label><i class="fas fa-list-alt mr-2"></i>Specifisité :</label>
+                                        <p class="text-capitalize">{{$student->specificity ?? 'Aucune'}}</p>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label><i class="fas fa-list-alt mr-2"></i>Handicap :</label>
+                                        <p class="text-capitalize">{{$student->disability ?? 'Non renseigné'}}</p>
                                     </div>
 
                                 </div>

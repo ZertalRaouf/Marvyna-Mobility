@@ -46,10 +46,10 @@
                                     <div class="form-row">
 
                                         <div class="col-lg-6 mb-3">
-                                            <label for="civility"><i class="fas fa-user mr-1"></i>Civilité <span class="text-danger">*</span></label>
+                                            <label for="civility"><i class="fas fa-user mr-1"></i>Sexe <span class="text-danger">*</span></label>
                                             <select id="civility" name="civility" type="text" class="custom-select">
-                                                <option value="1">Mr</option>
-                                                <option value="2">Mme</option>
+                                                <option value="1">Masculin</option>
+                                                <option value="2">Feminin</option>
                                             </select>
                                             @error('civility')
                                             <span class="text-danger small">

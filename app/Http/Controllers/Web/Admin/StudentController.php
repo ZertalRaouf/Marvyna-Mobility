@@ -22,7 +22,7 @@ class StudentController extends Controller
                 ClientSearch::class,
             ])
             ->thenReturn()
-            ->paginate(10);
+            ->paginate(8);
         return view('admin.students.index',compact('students'));
     }
 
