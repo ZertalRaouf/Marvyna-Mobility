@@ -19,12 +19,12 @@
     @enderror
     <div class="form-group  d-none" id="latitudeArea">
         <label>Latitude</label>
-        <input type="text" id="latitude" name="latitude" class="form-control" value="{{$latitude ?? old('latitude')}}">
+        <input type="text" id="latitude" name="latitude" class="form-control" value="{{($latitude ?? old('latitude')) ?? '48.8534'}}">
     </div>
 
     <div class="form-group  d-none" id="longtitudeArea">
         <label>Longitude</label>
-        <input type="text" name="longitude" id="longitude" class="form-control" value="{{$longitude ?? old('longitude')}}">
+        <input type="text" name="longitude" id="longitude" class="form-control" value="{{($longitude ?? old('longitude')) ?? '2.3488'}}">
     </div>
 
 </div>

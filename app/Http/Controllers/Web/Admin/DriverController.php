@@ -47,7 +47,7 @@ class DriverController extends Controller
             'licence_number'=>'required|string|max:45',
             'licence_expiration_date'=>'required|date',
             'licence_photo'=>'required|file|image|max:10000',
-            'is_available'=>'required|in:on,off',
+            'is_available'=>'in:on,off',
             'observation'=>'sometimes|nullable|string|max:450',
             'longitude'=>'required|max:90.99999999|min:-90.99999999',
             'latitude'=>'required|max:90.999999|min:-90.99999999'
