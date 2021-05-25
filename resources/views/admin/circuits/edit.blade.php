@@ -44,7 +44,7 @@
                                     <div class="form-row">
 
                                         <div class="col-lg-4 mb-3">
-                                            <label for="name">Name <span class="text-danger">*</span></label>
+                                            <label for="name">Nom du circuit <span class="text-danger">*</span></label>
                                             <input id="name" name="name" type="text" value="{{@old('name',$circuit->name)}}" class="form-control" placeholder="Code"/>
                                             @error('name')
                                             <span class="text-danger small">
@@ -54,8 +54,8 @@
                                         </div>
 
                                         <div class="col-lg-4 mb-3">
-                                            <label for="driver">Driver <span class="text-danger">*</span></label>
-                                            <select id="driver" name="driver_id" type="text" class="custom-select">
+                                            <label for="driver">Chauffeur <span class="text-danger">*</span></label>
+                                            <select id="driver" name="driver_id" type="text" class="form-control select2">
                                                 @foreach($drivers as $d)
                                                     <option value="{{$d->id}}" {{old('driver_id',$circuit->driver_id) === $d->id ? 'selected' : ''}}>
                                                         {{$d->first_name}}</option>
@@ -70,7 +70,7 @@
 
 
                                         <div class="col-lg-4 mb-3">
-                                            <label for="vehicule_id">vehicule <span class="text-danger">*</span></label>
+                                            <label for="vehicule_id">Vehicule <span class="text-danger">*</span></label>
                                             <select id="vehicule_id" name="vehicule_id" type="text" class="custom-select">
                                                 @foreach($vs as $v)
                                                     <option value="{{$v->id}}" {{old('vehicule_id',$circuit->vehicule_id) === $v->id ? 'selected' : ''}}>
@@ -86,8 +86,8 @@
 
 
                                         <div class="col-lg-6 mb-3">
-                                            <label for="students"><i class="fas fa-user mr-1"></i>Students <span class="text-danger">*</span></label>
-                                            <select id="students" name="students[]" type="text" class="custom-select" multiple>
+                                            <label for="students"><i class="fas fa-user mr-1"></i>Élèves <span class="text-danger">*</span></label>
+                                            <select id="students" name="students[]" type="text" class="form control select2 w-100" multiple>
                                                 @foreach($students as $s)
                                                     <option value="{{$s->id}}"
                                                             {{$circuit->students->contains($s->id) ? 'selected' :''}}

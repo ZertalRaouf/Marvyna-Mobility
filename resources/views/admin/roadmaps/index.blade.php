@@ -46,9 +46,6 @@
                                 <div class="row d-flex justify-content-between mb-3">
                                     <div class="col-md-auto text-center">
                                         <a href="{{route('admin.roadmaps.create')}}" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-plus"></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-file-pdf"></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-file-upload"></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-info rounded-circle elevation-1"><i class="fas fa-file-download"></i></a>
                                     </div>
                                     <div class="col-lg-3 mt-4 mt-lg-0">
                                         <form>
@@ -78,9 +75,9 @@
                                         <td class="align-middle text-capitalize">{{$r->name}}</td>
                                         <td class="align-middle">{{$r->created_at->format('d-m-Y')}}</td>
                                         <td class="text-white align-middle">
-                                            <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.roadmaps.show',$r->id)}}">
+                                            <!-- a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.roadmaps.show',$r->id)}}">
                                                 <i class="fas fa-folder"></i>
-                                            </a>
+                                            </a -->
                                             <a class="btn btn-info rounded-circle btn-sm" href="{{route('admin.roadmaps.edit',$r->id)}}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>

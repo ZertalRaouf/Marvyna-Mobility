@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}" class="text-info">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('admin.slots.index')}}" class="text-info">Slots</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}" class="text-info">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.slots.index')}}" class="text-info">Plannings</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0)" class="text-info">Details</a></li>
                     </ol>
                 </div>
@@ -33,28 +33,28 @@
                         <div class="card border-info">
                             <div class="card-body">
 
-                                <h3 class="text-info font-weight-bold">Slot Details</h3>
+                                <h3 class="text-info font-weight-bold">Détails Du Planning</h3>
 
                                 <hr>
                                 <div class="row">
 
                                     <div class="col-lg-6 mb-3">
-                                        <div class="text-muted font-weight-normal">Slot Name</div>
+                                        <div class="text-muted font-weight-normal">Titre</div>
                                         <div class="font-weight-bold">{{$slot->name ?? 'Empty'}}</div>
                                     </div>
 
                                     <div class="col-lg-6 mb-3">
-                                        <div class="text-muted font-weight-normal">Slot State</div>
+                                        <div class="text-muted font-weight-normal">État</div>
                                         <div class="font-weight-bold">{{$slot->state ? 'Active' : 'InActive'}}</div>
                                     </div>
 
                                     <div class="col-lg-6 mb-3">
-                                        <div class="text-muted font-weight-normal">Created at</div>
+                                        <div class="text-muted font-weight-normal">Date De Création</div>
                                         <div class="font-weight-bold">{{$slot->created_at->diffforhumans()}}</div>
                                     </div>
 
                                     <div class="col-lg-6 mb-3">
-                                        <div class="text-muted font-weight-normal">Last Update</div>
+                                        <div class="text-muted font-weight-normal">Dernière Modification</div>
                                         <div class="font-weight-bold">{{$slot->updated_at->diffforhumans()}}</div>
                                     </div>
 
@@ -64,10 +64,10 @@
 
                                 <div class="text-right">
                                     <a href="{{route('admin.slots.edit',$slot->id)}}" class="btn btn-info my-3" style="width: 135px">
-                                        Edit
+                                        Modifier
                                     </a>
                                     <a href="{{route('admin.slots.index')}}" class="btn btn-info my-3" style="width: 135px">
-                                        Back
+                                        Retour
                                     </a>
                                 </div>
 
@@ -75,12 +75,10 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="row-12">
+
                         <div class="card border-info">
                             <div class="card-body">
-                                <h3 class="text-info font-weight-bold">Slot Times</h3>
+                                <h3 class="text-info font-weight-bold">Horaires</h3>
                                 <hr>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-lg-auto">
@@ -92,12 +90,12 @@
                                         <thead class="bg-info">
                                         <tr>
                                             <th>#ID</th>
-                                            <th>Day</th>
-                                            <th>morning_start_at</th>
-                                            <th>morning_end_at</th>
-                                            <th>after_noon_start_at</th>
-                                            <th>after_noon_end_at</th>
-                                            <th>Create At</th>
+                                            <th>Jour</th>
+                                            <th>Heure Début Matinée</th>
+                                            <th>Heure Fin Matinée</th>
+                                            <th>Heure Début Aprés Midi</th>
+                                            <th>Heure Fin Aprés Midi</th>
+                                            <th>Date de Création</th>
                                             <th>Actions</th>
                                         </tr>
                                         </thead>
@@ -140,6 +138,8 @@
                         </div>
 
                     </div>
+                    <!-- /.col -->
+
                 </div>
                 <!-- /.row -->
             </div>
@@ -157,7 +157,7 @@
             <form  method="POST" action="{{route('admin.slot-times.store')}}">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">New Time</h4>
+                        <h4 class="modal-title">Nouvel horaire</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -166,8 +166,8 @@
                         @csrf
                         <div class="row">
                             <div class="col-lg-12 mb-3">
-                                <label for="slot" class="text-muted font-weight-normal">Slot <span class="text-danger">*</span></label>
-                                <select name="slot_id" id="slot" class="form-control select2 @error('slot_id') is-invalid @enderror" style="width: 100%;">
+                                <label for="slot" class="text-muted font-weight-normal">Planning <span class="text-danger">*</span></label>
+                                <select name="slot_id" id="slot" class="form-control @error('slot_id') is-invalid @enderror">
                                     @foreach($slots as $s)
                                         <option value="{{$s->id}}" {{old('slot_id') === $s->id ? 'selected' : ''}}>{{$s->name}}</option>
                                     @endforeach
@@ -178,8 +178,8 @@
                             </div>
 
                             <div class="col-lg-12 mb-3">
-                                <label for="day" class="text-muted font-weight-normal">Day <span class="text-danger">*</span></label>
-                                <select name="day" id="day" class="form-control select2 @error('day') is-invalid @enderror" style="width: 100%;">
+                                <label for="day" class="text-muted font-weight-normal">Jour <span class="text-danger">*</span></label>
+                                <select name="day" id="day" class="form-control @error('day') is-invalid @enderror" style="width: 100%;">
                                     @foreach(config('days') as $d)
                                         <option value="{{$d}}" {{old('day') === $d ? 'selected' : ''}}>{{$d}}</option>
                                     @endforeach
@@ -190,7 +190,7 @@
                             </div>
 
                             <div class="col-lg-12 mb-3">
-                                <label for="morning_start_at" class="text-muted font-weight-normal">morning_start_at <span class="text-danger">*</span></label>
+                                <label for="morning_start_at" class="text-muted font-weight-normal">Heure Début Matinée <span class="text-danger">*</span></label>
                                 <div class="input-group date" id="timepicker_morning_start_at" data-target-input="nearest">
                                     <input type="text" name="morning_start_at" value="{{old('morning_start_at')}}" id="start_at" class="form-control datetimepicker-input @error('morning_start_at') is-invalid @enderror" data-target="#timepicker_morning_start_at"/>
                                     <div class="input-group-append" data-target="#timepicker_morning_start_at" data-toggle="datetimepicker">
@@ -203,7 +203,7 @@
                             </div>
 
                             <div class="col-lg-12 mb-3">
-                                <label for="start_at" class="text-muted font-weight-normal">morning_end_at <span class="text-danger">*</span></label>
+                                <label for="start_at" class="text-muted font-weight-normal">Heure Fin Matinée <span class="text-danger">*</span></label>
                                 <div class="input-group date" id="timepicker_morning_end_at" data-target-input="nearest">
                                     <input type="text" name="morning_end_at" value="{{old('morning_end_at')}}" id="start_at" class="form-control datetimepicker-input @error('morning_end_at') is-invalid @enderror" data-target="#timepicker_morning_end_at"/>
                                     <div class="input-group-append" data-target="#timepicker_morning_end_at" data-toggle="datetimepicker">
@@ -216,7 +216,7 @@
                             </div>
 
                             <div class="col-lg-12 mb-3">
-                                <label for="after_noon_start_at" class="text-muted font-weight-normal">after_noon_start_at <span class="text-danger">*</span></label>
+                                <label for="after_noon_start_at" class="text-muted font-weight-normal">Heure Début Après Midi <span class="text-danger">*</span></label>
                                 <div class="input-group date" id="timepicker_after_noon_start_at" data-target-input="nearest">
                                     <input type="text" name="after_noon_start_at" value="{{old('after_noon_start_at')}}" id="after_noon_start_at" class="form-control datetimepicker-input @error('after_noon_start_at') is-invalid @enderror" data-target="#timepicker_after_noon_start_at"/>
                                     <div class="input-group-append" data-target="#timepicker_after_noon_start_at" data-toggle="datetimepicker">
@@ -229,7 +229,7 @@
                             </div>
 
                             <div class="col-lg-12 mb-3">
-                                <label for="after_noon_end_at" class="text-muted font-weight-normal">after_noon_end_at <span class="text-danger">*</span></label>
+                                <label for="after_noon_end_at" class="text-muted font-weight-normal">Heure Fin Après Midi <span class="text-danger">*</span></label>
                                 <div class="input-group date" id="timepicker_after_noon_end_at" data-target-input="nearest">
                                     <input type="text" name="after_noon_end_at" value="{{old('after_noon_end_at')}}" id="after_noon_end_at"  class="form-control datetimepicker-input @error('after_noon_end_at') is-invalid @enderror" data-target="#timepicker_after_noon_end_at"/>
                                     <div class="input-group-append" data-target="#timepicker_after_noon_end_at" data-toggle="datetimepicker">
@@ -247,8 +247,8 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
                     </div>
                 </div>
             </form>
