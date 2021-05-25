@@ -107,7 +107,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
+                    <a href="{{route('admin.slots.index')}}" class="nav-link {{request()->is('admin/slots*') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
                             Plannings
@@ -115,14 +115,6 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link {{request()->is('dashboard') ? 'active' : ''}}">
-                        <i class="nav-icon fas fa-rss-square"></i>
-                        <p>
-                            Flux RSS
-                        </p>
-                    </a>
-                </li>
 
                 <li class="nav-item">
                     <a href="{{route('admin.roadmaps.index')}}" class="nav-link {{request()->is('admin/roadmaps*') ? 'active' : ''}}">
