@@ -162,7 +162,7 @@
                 position: {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} },
                 map: map,
             });
-            msg = '{!! preg_replace( "/\r|\n/", "<br>", $circuit->driver->address ) !!} <br><a href="https://maps.google.com/?ll={{$circuit->driver->latitude}},{{$circuit->driver->longitude}}" target="_blank">iténeraire</a>'
+            msg = '{!! preg_replace( "/\r|\n/", "<br>", $circuit->driver->address ) !!} <br><a href="https://maps.google.com/?q={{$circuit->driver->latitude}},{{$circuit->driver->longitude}}" target="_blank">iténeraire</a>'
             attachSecretMessage(marker, msg);
 
             function attachSecretMessage(marker, secretMessage) {
