@@ -151,7 +151,7 @@
             var marker;
             var msg;
             // The location of Uluru
-            const driver = {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} };
+            const driver = {lat: {{$circuit->driver->position_latitude}}, lng: {{$circuit->driver->position_longitude}} };
             // The map, centered at Uluru
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 4,
@@ -159,10 +159,10 @@
             });
             // The marker, positioned at Uluru
             marker = new google.maps.Marker({
-                position: {lat: {{$circuit->driver->latitude}}, lng: {{$circuit->driver->longitude}} },
+                position: {lat: {{$circuit->driver->position_latitude}}, lng: {{$circuit->driver->position_longitude}} },
                 map: map,
             });
-            msg = '{!! preg_replace( "/\r|\n/", "<br>", $circuit->driver->address ) !!} <br><a href="https://maps.google.com/?q={{$circuit->driver->latitude}},{{$circuit->driver->longitude}}" target="_blank">iténeraire</a>'
+            msg = '{!! preg_replace( "/\r|\n/", "<br>", $circuit->driver->address ) !!} <br><a href="https://maps.google.com/?q={{$circuit->driver->position_latitude}},{{$circuit->driver->position_longitude}}" target="_blank">iténeraire</a>'
             attachSecretMessage(marker, msg);
 
             function attachSecretMessage(marker, secretMessage) {
