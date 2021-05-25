@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Components\navbar;
+use App\View\Components\navbar_user;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         View::composer('driver.layouts.partials.navbar', navbar::class);
+        View::composer('user.layouts.partials.navbar', navbar_user::class);
+
 
     }
 }
