@@ -1,4 +1,4 @@
-@extends('driver.layouts.app')
+@extends('user.layouts.app')
 
 @push('css')
     <style>

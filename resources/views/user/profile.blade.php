@@ -1,4 +1,4 @@
-@extends('driver.layouts.app')
+@extends('user.layouts.app')
 
 @section('content')
     <div class="container-fluid bg-green text-light pt-4" style="height: 125px"></div>
