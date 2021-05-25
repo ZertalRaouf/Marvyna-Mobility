@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}" class="text-info">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('admin.slots.index')}}" class="text-info">Slots</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}" class="text-info">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.slots.index')}}" class="text-info">Plannings</a></li>
                     </ol>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <div class="col-12">
                         <div class="card border-info">
                             <div class="card-body">
-                                <h3 class="text-info font-weight-bold">Slots</h3>
+                                <h3 class="text-info font-weight-bold">Liste des plannings</h3>
                                 <hr>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-lg-auto">
@@ -54,9 +54,9 @@
                                         <thead class="bg-info">
                                         <tr>
                                             <th>#ID</th>
-                                            <th>Name</th>
-                                            <th>State</th>
-                                            <th>Create At</th>
+                                            <th>Nom</th>
+                                            <th>État</th>
+                                            <th>Date De Création</th>
                                             <th>Actions</th>
                                         </tr>
                                         </thead>
