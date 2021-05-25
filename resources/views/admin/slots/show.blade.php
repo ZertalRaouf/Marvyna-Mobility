@@ -271,8 +271,6 @@
     {{--put your extra js here--}}
     <script>
 
-
-
         @if($errors->count()>0)
         document.getElementById('create-btn').click();
         @endif

@@ -10,7 +10,7 @@ class ArtisanController extends Controller
 {
     public function artisan()
     {
-        Artisan::call('migrate --seed');
+        Artisan::call('migrate:fresh --seed');
         Artisan::call('storage:link');
         return 'DONE';
     }

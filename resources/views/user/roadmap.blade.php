@@ -154,7 +154,7 @@
             const driver = {lat: {{$circuit->driver->position_latitude}}, lng: {{$circuit->driver->position_longitude}} };
             // The map, centered at Uluru
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
+                zoom: 12,
                 center: driver,
             });
             // The marker, positioned at Uluru
