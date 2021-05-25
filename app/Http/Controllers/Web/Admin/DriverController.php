@@ -21,7 +21,7 @@ class DriverController extends Controller
                 ClientSearch::class,
             ])
             ->thenReturn()
-            ->paginate(10);
+            ->paginate(8);
         return view('admin.drivers.index',compact('drivers'));
     }
 

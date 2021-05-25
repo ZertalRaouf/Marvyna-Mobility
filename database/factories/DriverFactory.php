@@ -40,7 +40,9 @@ class DriverFactory extends Factory
             'is_available'=>true,
             'observation'=>$this->faker->sentence,
             'longitude'=>'20',
+            'position_longitude'=>'20',
             'latitude'=>'20',
+            'position_latitude'=>'20',
         ];
     }
 }

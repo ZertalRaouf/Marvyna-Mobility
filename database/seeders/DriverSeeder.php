@@ -33,7 +33,9 @@ class DriverSeeder extends Seeder
             'is_available'=>true,
             'observation'=>'Ceci est une observation',
             'longitude'=>'20',
+            'position_longitude'=>'20',
             'latitude'=>'20',
+            'position_latitude'=>'20',
         ]);
 
         Driver::factory(100)->create();

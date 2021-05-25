@@ -14,8 +14,8 @@ class AddToDriversTable2 extends Migration
     public function up()
     {
         Schema::table('drivers', function (Blueprint $table) {
-            $table->decimal('position_longitude', 10,7);
-            $table->decimal('position_latitude', 10,7);
+            $table->decimal('position_longitude', 10,7)->default(0);
+            $table->decimal('position_latitude', 10,7)->default(0);
         });
     }
 
