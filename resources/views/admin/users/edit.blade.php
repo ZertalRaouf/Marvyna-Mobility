@@ -45,7 +45,7 @@
 
                                     <div class="form-row">
 
-                                        <div class="col-lg-6 mb-3">
+                                        <div class="col-lg-4 mb-3">
                                             <label for="civility"><i class="fas fa-user mr-1"></i>Civilité <span class="text-danger">*</span></label>
                                             <select id="civility" name="civility" type="text" class="custom-select">
                                                 <option value="Mr" {{$user->civility == 'Mr' ? 'selected' : ''}}>Mr</option>
@@ -58,7 +58,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
+                                        <div class="col-lg-4 mb-3">
                                             <label for="first_name"><i class="fas fa-user mr-1"></i>Nom <span class="text-danger">*</span></label>
                                             <input id="first_name" name="first_name" type="text" value="{{old('first_name',$user->first_name)}}" class="form-control" placeholder="Nom"/>
                                             @error('first_name')
@@ -68,9 +68,9 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
-                                            <label for="last_name"><i class="fas fa-user mr-1"></i>prénom <span class="text-danger">*</span></label>
-                                            <input id="last_name" name="last_name" type="text" value="{{old('last_name',$user->last_name)}}" class="form-control" placeholder="prénom"/>
+                                        <div class="col-lg-4 mb-3">
+                                            <label for="last_name"><i class="fas fa-user mr-1"></i>Prénom <span class="text-danger">*</span></label>
+                                            <input id="last_name" name="last_name" type="text" value="{{old('last_name',$user->last_name)}}" class="form-control" placeholder="Prénom"/>
                                             @error('last_name')
                                             <span class="text-danger small">
                                                 <i class="fas fa-exclamation-circle mr-2"></i>{{$message}}
@@ -78,7 +78,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-4 mb-3">
+                                        <div class="col-lg-6 mb-3">
                                             <label for="phone"><i class="fas fa-phone-alt mr-1"></i>Numéro de téléphone <span class="text-danger">*</span></label>
                                             <input id="phone" name="phone" type="text" value="{{old('phone',$user->phone)}}" class="form-control @error('phone') is-invalid @enderror" placeholder="Numéro de téléphone"/>
                                             @error('phone')
@@ -88,7 +88,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-4 mb-3">
+                                        <div class="col-lg-6 mb-3">
                                             <label for="mobile"><i class="fas fa-mobile-alt mr-1"></i>Mobile</label>
                                             <input id="mobile" name="mobile" type="text" value="{{@old('mobile',$user->mobile)}}" class="form-control" placeholder="Mobile"/>
                                             @error('mobile')
@@ -108,7 +108,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
+                                        <div class="col-lg-4 mb-3">
                                             <label for="password"><i class="fas fa-lock mr-1"></i>Nouveau mot de passe <span class="text-danger">*</span></label>
                                             <input id="password" name="password" type="password" class="form-control" placeholder="Nouveau mot de passe"/>
                                             @error('password')
@@ -118,7 +118,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
+                                        <div class="col-lg-4 mb-3">
                                             <label for="password_confirmation"><i class="fas fa-lock mr-1"></i>Confirmation du nouveau mot de passe <span class="text-danger">*</span></label>
                                             <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirmation du nouveau mot de passe"/>
                                         </div>

@@ -19,7 +19,7 @@ class UserController extends Controller
                 ClientSearch::class,
             ])
             ->thenReturn()
-            ->paginate(10);
+            ->paginate(8);
 
         return view('admin.users.index',compact('users'));
     }
