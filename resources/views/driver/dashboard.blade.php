@@ -137,7 +137,7 @@
 
                                         @foreach($circuits as $circuit)
                                         <tr>
-                                            <td>{{$circuit->from_date->format('d-m-Y')}}</td>
+                                            <td>{{$circuit->name}}</td>
                                             <td>
                                                 <a href="{{route('driver.circuit.show', $circuit->id)}}" class="text-decoration-none text-green">
                                                     <i class="fas fa-map-marker-alt"></i>
