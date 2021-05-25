@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Vehicule;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DriverSeeder::class);
         $this->call(EstablishmentSeeder::class);
         $this->call(StudentSeeder::class);
+        $this->call(VehiculeSeeder::class);
+
     }
 }
